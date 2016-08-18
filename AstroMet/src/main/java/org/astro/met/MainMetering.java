@@ -44,7 +44,7 @@ public class MainMetering extends JFrame {
         double sp = DataClass.SPEEDS[comboBoxSpeed.getSelectedIndex()];
         long s = (long)(c / sp);
         labelDistance.setText(DataClass.formatDistance(c, comboBoxUnits.getSelectedIndex()));
-        labelFlightTime.setText(DataClass.formatSeconds(s));
+        labelFlightTime.setText(DataClass.formatTime(s));
     }
 
     @SuppressWarnings("unckecked")

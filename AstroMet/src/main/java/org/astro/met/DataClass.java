@@ -14,6 +14,7 @@ public class DataClass {
             "Хаумеа", "Макемаке", "Пояс Койпера (конец)", "Эрида", "Облако Оорта"};
 
     // distance atom - km
+    // time atom - sec
     /**
      * This array contains distances between Sun and other Solar System Objects (km)
      */
@@ -61,7 +62,7 @@ public class DataClass {
 
     // UNITS
 
-    public static final String[] UNITS_DESCRIPTION = {"км", "мили", "а.е.", "парсеки"};
+    public static final String[] UNITS_DESCRIPTION = {"километры", "мили", "а.е.", "парсеки"};
 
     public static final double MILES_COEFF = 1.609345512783376231; // km = 1 mile
     public static final double AU_COEFF = 149598011.322; // km = 1 a.u.
@@ -76,28 +77,28 @@ public class DataClass {
 
     // METHODS
 
-    public static String formatDistance(long c, int index){
-        if (c <= 0){
+    public static String formatDistance(long c, int index) {
+        if (c <= 0) {
             return "объекты идентичны";
         }
-        if (index == 0){
-            return c+" km";
+        if (index == 0) {
+            return c + " км";
         }
-        if (index == 1){
-            return (int)(c/MILES_COEFF)+" mile(s)";
+        if (index == 1) {
+            return (int) (c / MILES_COEFF) + " М";
         }
-        if (index == 2){
-            return (c/AU_COEFF)+" a.u.";
+        if (index == 2) {
+            return (c / AU_COEFF) + " а.е.";
         }
-        if (index == 3){
-            return (c/PC_COEFF)+" pc";
+        if (index == 3) {
+            return (c / PC_COEFF) + " пс";
         }
         return "-unknown unit-";
     }
 
-    public static String formatSeconds(long s) {
+    public static String formatTime(long s) {
         if (s <= 0) {
-            return "0 s";
+            return "0 с";
         }
         // 1 m = 60 s
         // 1 h == 60 m = 3600 s
@@ -106,28 +107,69 @@ public class DataClass {
         String time = "";
         if (s >= 31536000L) {
             int i = (int) (s / 31536000L);
-            time += i + " year(s) ";
+            time += i + " " + getRightDeclensionFor(i, YEAR) + " ";
             s -= i * 31536000L;
         }
         if (s >= 86400) {
             int i = (int) (s / 86400);
-            time += i + " day(s) ";
+            time += i + " " + getRightDeclensionFor(i, DAY) + " ";
             s -= i * 86400;
         }
         if (s >= 3600) {
             int i = (int) (s / 3600);
-            time += i + " hrs ";
+            time += i + " " + getRightDeclensionFor(i, HOUR) + " ";
             s -= i * 3600;
         }
         if (s >= 60) {
             int i = (int) (s / 60);
-            time += i + " min ";
+            time += i + " мин ";
             s -= i * 60;
         }
         if (s > 0) {
-            time += s + " sec";
+            time += s + " сек";
         }
         return time;
     }
 
+    // units
+    private static final int YEAR = 1;
+    private static final int DAY = 2;
+    private static final int HOUR = 3;
+
+    private static String getRightDeclensionFor(int number, int unit) {
+        while (number >= 100) {
+            number -= 100;
+        }
+        if (number % 10 == 1 && number != 11) {
+            if (unit == YEAR) {
+                return "год";
+            } else if (unit == DAY) {
+                return "день";
+            } else if (unit == HOUR) {
+                return "час";
+            } else {
+                return "wrong unit type";
+            }
+        } else if (number % 10 == 2 && number != 12 || number % 10 == 3 && number != 13 || number % 10 == 4 && number != 14) {
+            if (unit == YEAR) {
+                return "года";
+            } else if (unit == DAY) {
+                return "дня";
+            } else if (unit == HOUR) {
+                return "часа";
+            } else {
+                return "wrong unit type";
+            }
+        } else {
+            if (unit == YEAR) {
+                return "лет";
+            } else if (unit == DAY) {
+                return "дней";
+            } else if (unit == HOUR) {
+                return "часов";
+            } else {
+                return "wrong unit type";
+            }
+        }
+    }
 }
