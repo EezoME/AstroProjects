@@ -42,14 +42,15 @@ public class DataClass {
 
     // SPEEDS (km/s)
 
-    public static final String[] SPEEDS_DESCRIPTION = {"Скорость света", "Самый быстрый самолёт", "Скорость ракеты",
-            "Скорость звука", "Самая быстрый автомобиль", "Комфортная скорость автомобиля", "Рекорд для человека",
-            "Обычная ходьба", "Скорость Джефа",};
+    public static final String[] SPEEDS_DESCRIPTION = {"Скорость света (СС)", "Скорость сигнала в кабеле (67% от СС)",
+            "Самый быстрый самолёт", "Скорость ракеты", "Скорость звука", "Самая быстрый автомобиль",
+            "Комфортная скорость автомобиля", "Рекорд для человека", "Обычная ходьба", "Скорость Джефа",};
     /**
      * This array contains speeds for different objects (km/s).
      */
     public static final double[] SPEEDS = {
             299792.458, // speed of light
+            200860.94686, // speed of the signal in a cable
             3.373, // the fastest plain "Orbital Sciences Corporation Х-34"
             1.5914361, // the fastest rocket
             0.34029, // speed of sound
@@ -82,10 +83,10 @@ public class DataClass {
             return "объекты идентичны";
         }
         if (index == 0) {
-            return c + " км";
+            return getDigitIdents(c) + " км";
         }
         if (index == 1) {
-            return (int) (c / MILES_COEFF) + " М";
+            return getDigitIdents((int)(c / MILES_COEFF)) + " М";
         }
         if (index == 2) {
             return (c / AU_COEFF) + " а.е.";
@@ -171,5 +172,27 @@ public class DataClass {
                 return "wrong unit type";
             }
         }
+    }
+
+    private static String getDigitIdents(long number) {
+        String stringNumber = String.valueOf(number);
+        int pos = stringNumber.indexOf('.');
+        if (pos == -1) {
+            pos = stringNumber.length() - 1;
+        }
+        int counter = 0;
+        while (pos >= 0) {
+            if (stringNumber.charAt(pos) >= 48 && stringNumber.charAt(pos) <= 57) {
+                counter++;
+            }
+            if (counter == 3) {
+                String st1 = stringNumber.substring(0, pos);
+                String st2 = stringNumber.substring(pos);
+                stringNumber = st1 + " " + st2;
+                counter = 0;
+            }
+            pos--;
+        }
+        return stringNumber;
     }
 }
