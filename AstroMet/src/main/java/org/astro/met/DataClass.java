@@ -1,15 +1,22 @@
 package org.astro.met;
 
+
+import org.astro.met.model.abstracts.PlanetarySystemObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
+ * This class contains info for GUI v1.0 and some constants and help methods.
  * Created by Eezo on 17.08.2016.
  */
 public class DataClass {
 
     // OBJECTS
 
-    public static final String[] GALAXIES = {"Млечный Путь"};
-    public static final String[] STAR_SYSTEMS = {"Солнечная система"};
-    public static final String[] SOLAR_SYSTEM_OBJECTS = {"Солнце", "Меркурий", "Венера", "Земля", "Марс", "Пояс астероидов (начало)",
+    static final String[] GALAXIES = {"Млечный Путь"};
+    static final String[] STAR_SYSTEMS = {"Солнечная система"};
+    static final String[] SOLAR_SYSTEM_OBJECTS = {"Солнце", "Меркурий", "Венера", "Земля", "Марс", "Пояс астероидов (начало)",
             "Церера", "Пояс астероидов (конец)", "Юпитер", "Сатурн", "Уран", "Нептун", "Пояс Койпера (начало)", "Плутон",
             "Хаумеа", "Макемаке", "Пояс Койпера (конец)", "Эрида", "Облако Оорта"};
 
@@ -18,7 +25,7 @@ public class DataClass {
     /**
      * This array contains distances between Sun and other Solar System Objects (km)
      */
-    public static final long[] DISTANCES = {
+    static final long[] DISTANCES = {
             0L, // Sun
             57909227L, // Mercury
             108208930L, // Venus
@@ -42,13 +49,13 @@ public class DataClass {
 
     // SPEEDS (km/s)
 
-    public static final String[] SPEEDS_DESCRIPTION = {"Скорость света (СС)", "Скорость сигнала в кабеле (67% от СС)",
+    static final String[] SPEEDS_DESCRIPTION = {"Скорость света (СС)", "Скорость сигнала в кабеле (67% от СС)",
             "Самый быстрый самолёт", "Скорость ракеты", "Скорость звука", "Самая быстрый автомобиль",
             "Комфортная скорость автомобиля", "Рекорд для человека", "Обычная ходьба", "Скорость Джефа",};
     /**
      * This array contains speeds for different objects (km/s).
      */
-    public static final double[] SPEEDS = {
+    static final double[] SPEEDS = {
             299792.458, // speed of light
             200860.94686, // speed of the signal in a cable
             3.373, // the fastest plain "Orbital Sciences Corporation Х-34"
@@ -63,7 +70,7 @@ public class DataClass {
 
     // UNITS
 
-    public static final String[] UNITS_DESCRIPTION = {"километры", "мили", "а.е.", "парсеки"};
+    static final String[] UNITS_DESCRIPTION = {"километры", "мили", "а.е.", "парсеки"};
 
     public static final double MILES_COEFF = 1.609345512783376231; // km = 1 mile
     public static final double AU_COEFF = 149598011.322; // km = 1 a.u.
@@ -86,7 +93,7 @@ public class DataClass {
             return getDigitIdents(c) + " км";
         }
         if (index == 1) {
-            return getDigitIdents((int)(c / MILES_COEFF)) + " М";
+            return getDigitIdents((int) (c / MILES_COEFF)) + " М";
         }
         if (index == 2) {
             return (c / AU_COEFF) + " а.е.";
@@ -106,25 +113,25 @@ public class DataClass {
         // 1 d == 24 h == 1440 m = 86400 s
         // 1 y == 365 d == 8760 h == 525600 m = 31536000 s
         String time = "";
-        if (s >= 31536000L) {
-            int i = (int) (s / 31536000L);
+        if (s >= YEAR_COEFF) {
+            int i = (int) (s / YEAR_COEFF);
             time += i + " " + getRightDeclensionFor(i, YEAR) + " ";
-            s -= i * 31536000L;
+            s -= i * YEAR_COEFF;
         }
-        if (s >= 86400) {
-            int i = (int) (s / 86400);
+        if (s >= DAY_COEFF) {
+            int i = (int) (s / DAY_COEFF);
             time += i + " " + getRightDeclensionFor(i, DAY) + " ";
-            s -= i * 86400;
+            s -= i * DAY_COEFF;
         }
-        if (s >= 3600) {
-            int i = (int) (s / 3600);
+        if (s >= HOUR_COEFF) {
+            int i = (int) (s / HOUR_COEFF);
             time += i + " " + getRightDeclensionFor(i, HOUR) + " ";
-            s -= i * 3600;
+            s -= i * HOUR_COEFF;
         }
-        if (s >= 60) {
-            int i = (int) (s / 60);
+        if (s >= MINUTE_COEFF) {
+            int i = (int) (s / MINUTE_COEFF);
             time += i + " мин ";
-            s -= i * 60;
+            s -= i * MINUTE_COEFF;
         }
         if (s > 0) {
             time += s + " сек";
@@ -195,4 +202,22 @@ public class DataClass {
         }
         return stringNumber;
     }
+
+    public final static long YEAR_COEFF = 31557600L;
+    public final static long DAY_COEFF = 60 * 60 * 24;
+    public final static long HOUR_COEFF = 60 * 60;
+    public final static long MINUTE_COEFF = 60;
+
+
+    public static List<PlanetarySystemObject> makeAList(PlanetarySystemObject... objects){
+        if (objects == null || objects.length == 0){
+            return null;
+        }
+        List<PlanetarySystemObject> list = new ArrayList<>();
+        for (int i = 0; i < objects.length; i++) {
+            list.add(objects[i]);
+        }
+        return list;
+    }
+
 }
