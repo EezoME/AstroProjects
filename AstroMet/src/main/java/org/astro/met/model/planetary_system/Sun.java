@@ -31,13 +31,12 @@ public final class Sun extends Star {
         Pluto pluto = new Pluto(this);
         Haumea haumea = new Haumea(this);
         Makemake makemake = new Makemake(this);
-        Eris eris = new Eris(this);
         satellites.add(pluto);
         satellites.add(haumea);
         satellites.add(makemake);
-        satellites.add(eris);
+        satellites.add(new Eris(this));
         satellites.add(new AsteroidBelt(DataClass.makeAList(ceres)));
-        satellites.add(new KuiperBelt(DataClass.makeAList(pluto, haumea, makemake, eris)));
+        satellites.add(new KuiperBelt(DataClass.makeAList(pluto, haumea, makemake)));
         satellites.add(new OortCloud(null)); // No one known object for now
     }
 

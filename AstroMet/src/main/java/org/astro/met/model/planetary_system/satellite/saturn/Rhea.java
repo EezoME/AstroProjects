@@ -17,11 +17,15 @@ public final class Rhea extends PlanetarySystemObject {
         semiMajorAxis = 527100;
         averageOrbitalPeriod = (long) (4.5 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = saturn;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 764.3; // diameter: 1528.6
+        surfaceArea = 7337000;
         satellites = null; // No one known satellite
     }
 

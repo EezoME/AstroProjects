@@ -17,11 +17,15 @@ public final class Triton extends PlanetarySystemObject {
         semiMajorAxis = 354759;
         averageOrbitalPeriod = (long) (-5.88 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = neptune;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 1353.4;
+        surfaceArea = 23018000;
         satellites = null; // No one known satellite
     }
 

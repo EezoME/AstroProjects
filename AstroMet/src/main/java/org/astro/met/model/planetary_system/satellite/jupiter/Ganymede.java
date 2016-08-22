@@ -17,11 +17,15 @@ public final class Ganymede extends PlanetarySystemObject {
         semiMajorAxis = 1070400;
         averageOrbitalPeriod = (long) (7.15455296 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 10.880;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = jupiter;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 2634.1; // +- 0.3
+        surfaceArea = 87000000; // computed by formula: 4*pi*r^2
         satellites = null; // No one known satellite
     }
 

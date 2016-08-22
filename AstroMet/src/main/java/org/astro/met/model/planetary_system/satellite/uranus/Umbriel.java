@@ -17,11 +17,15 @@ public final class Umbriel extends PlanetarySystemObject {
         semiMajorAxis = 266000;
         averageOrbitalPeriod = (long) (4.144 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = uranus;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 584.7; // diameter: 1169.4 +- 2.8
+        surfaceArea = 4296000;
         satellites = null; // No one known satellite
     }
 

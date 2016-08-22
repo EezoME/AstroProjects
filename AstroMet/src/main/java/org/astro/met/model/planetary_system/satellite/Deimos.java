@@ -17,11 +17,15 @@ public final class Deimos extends PlanetarySystemObject {
         semiMajorAxis = 23458;
         averageOrbitalPeriod = (long) (1.26244 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = mars;
 
-        equatorialRadius = -1;
+        equatorialRadius = -1; // 15 x 12.2 x 10.4 km
         polarRadius = -1;
-        meanRadius = -1; // 15 x 12.2 x 10.4 km
+        meanRadius = 6.2; // avg diameter 12.4 km
+        surfaceArea = -1;
         satellites = null; // No one known satellite
     }
 

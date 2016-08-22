@@ -15,13 +15,18 @@ public final class Mercury extends PlanetarySystemObject {
         pericenter = 46001009; // 0.30749951 au
         apocenter = 69817445; // 0.46670079 au
         semiMajorAxis = 57909227; // 0.38709927 au
+        orbitalEccentricity = 0.20563593;
         averageOrbitalPeriod = (long) (87.969 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 47.36;
+        rotationPeriod = (long)(58.646 * DataClass.DAY_COEFF);
+        isSynchronized = false;
+
         aSatelliteOf = sun;
 
         equatorialRadius = 2439.7;
         polarRadius = 2439.7;
         meanRadius = 2439.7; // +- 1
+        surfaceArea = 74800000;
         satellites = null; // No one known satellite
     }
 

@@ -27,6 +27,10 @@ public abstract class PlanetarySystemObject {
      */
     protected long semiMajorAxis; // km
     /**
+     * A parameter that determines the amount by which its orbit around another body deviates from a perfect circle.
+     */
+    protected double orbitalEccentricity; // 0..1
+    /**
      * The time taken for PSO to make one complete orbit around another object.
      */
     protected long averageOrbitalPeriod; // sec
@@ -34,6 +38,18 @@ public abstract class PlanetarySystemObject {
      * The speed at which PSO orbits around a more massive body.
      */
     protected double averageOrbitalSpeed; // km/sec
+    /**
+     * The time that it takes to complete one revolution around its axis of rotation relative to the background stars.
+     */
+    protected long rotationPeriod; // sec
+    /**
+     * Tidal locking (also called gravitational locking or captured rotation) occurs
+     * when, over the course of an orbit, there is no net transfer of angular momentum between
+     * an astronomical body and its gravitational partner.
+     * Tidal locking results in one hemisphere of the revolving object constantly facing its partner,
+     * an effect known as synchronous rotation.
+     */
+    protected boolean isSynchronized;
     /**
      * Other PSO around which this PSO rotates.
      */
@@ -54,6 +70,10 @@ public abstract class PlanetarySystemObject {
      */
     protected double meanRadius; // km
     /**
+     * The surface of PSO area (km^2).
+     */
+    protected long surfaceArea; // km^2
+    /**
      * The list of natural objects that orbit around PSO.
      */
     protected List<PlanetarySystemObject> satellites;
@@ -62,23 +82,29 @@ public abstract class PlanetarySystemObject {
         return type;
     }
 
-    public void setType(Type type) {
+    protected void setType(Type type) {
         this.type = type;
     }
 
     public long getPericenter() {
+        if (pericenter == -1){
+            return (long)(semiMajorAxis * (1 - orbitalEccentricity));
+        }
         return pericenter;
     }
 
-    public void setPericenter(long pericenter) {
+    protected void setPericenter(long pericenter) {
         this.pericenter = pericenter;
     }
 
     public long getApocenter() {
+        if (apocenter == -1){
+            return (long)(semiMajorAxis * (1 + orbitalEccentricity));
+        }
         return apocenter;
     }
 
-    public void setApocenter(long apocenter) {
+    protected void setApocenter(long apocenter) {
         this.apocenter = apocenter;
     }
 
@@ -86,15 +112,23 @@ public abstract class PlanetarySystemObject {
         return semiMajorAxis;
     }
 
-    public void setSemiMajorAxis(long semiMajorAxis) {
+    protected void setSemiMajorAxis(long semiMajorAxis) {
         this.semiMajorAxis = semiMajorAxis;
+    }
+
+    public double getOrbitalEccentricity() {
+        return orbitalEccentricity;
+    }
+
+    protected void setOrbitalEccentricity(double orbitalEccentricity) {
+        this.orbitalEccentricity = orbitalEccentricity;
     }
 
     public long getAverageOrbitalPeriod() {
         return averageOrbitalPeriod;
     }
 
-    public void setAverageOrbitalPeriod(long averageOrbitalPeriod) {
+    protected void setAverageOrbitalPeriod(long averageOrbitalPeriod) {
         this.averageOrbitalPeriod = averageOrbitalPeriod;
     }
 
@@ -102,15 +136,31 @@ public abstract class PlanetarySystemObject {
         return averageOrbitalSpeed;
     }
 
-    public void setAverageOrbitalSpeed(double averageOrbitalSpeed) {
+    protected void setAverageOrbitalSpeed(double averageOrbitalSpeed) {
         this.averageOrbitalSpeed = averageOrbitalSpeed;
+    }
+
+    public long getRotationPeriod() {
+        return rotationPeriod;
+    }
+
+    protected void setRotationPeriod(long rotationPeriod) {
+        this.rotationPeriod = rotationPeriod;
+    }
+
+    public boolean isSynchronized() {
+        return isSynchronized;
+    }
+
+    protected void setSynchronized(boolean aSynchronized) {
+        isSynchronized = aSynchronized;
     }
 
     public PlanetarySystemObject getaSatelliteOf() {
         return aSatelliteOf;
     }
 
-    public void setaSatelliteOf(PlanetarySystemObject aSatelliteOf) {
+    protected void setaSatelliteOf(PlanetarySystemObject aSatelliteOf) {
         this.aSatelliteOf = aSatelliteOf;
     }
 
@@ -118,7 +168,7 @@ public abstract class PlanetarySystemObject {
         return equatorialRadius;
     }
 
-    public void setEquatorialRadius(double equatorialRadius) {
+    protected void setEquatorialRadius(double equatorialRadius) {
         this.equatorialRadius = equatorialRadius;
     }
 
@@ -126,7 +176,7 @@ public abstract class PlanetarySystemObject {
         return polarRadius;
     }
 
-    public void setPolarRadius(double polarRadius) {
+    protected void setPolarRadius(double polarRadius) {
         this.polarRadius = polarRadius;
     }
 
@@ -134,15 +184,23 @@ public abstract class PlanetarySystemObject {
         return meanRadius;
     }
 
-    public void setMeanRadius(double meanRadius) {
+    protected void setMeanRadius(double meanRadius) {
         this.meanRadius = meanRadius;
+    }
+
+    public long getSurfaceArea() {
+        return surfaceArea;
+    }
+
+    protected void setSurfaceArea(long surfaceArea) {
+        this.surfaceArea = surfaceArea;
     }
 
     public List<PlanetarySystemObject> getSatellites() {
         return satellites;
     }
 
-    public void setSatellites(List<PlanetarySystemObject> satellites) {
+    protected void setSatellites(List<PlanetarySystemObject> satellites) {
         this.satellites = satellites;
     }
 

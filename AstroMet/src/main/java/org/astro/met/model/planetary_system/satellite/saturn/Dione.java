@@ -17,11 +17,15 @@ public final class Dione extends PlanetarySystemObject {
         semiMajorAxis = 377400;
         averageOrbitalPeriod = (long) (2.77 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = saturn;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 561.7; // diameter: 1123.4
+        surfaceArea = 3964659; // computed by formula: 4*pi*r^2
         satellites = null; // No one known satellite
     }
 

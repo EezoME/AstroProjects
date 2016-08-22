@@ -17,11 +17,15 @@ public final class Oberon extends PlanetarySystemObject {
         semiMajorAxis = 583520;
         averageOrbitalPeriod = (long) (13.463 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = uranus;
 
         equatorialRadius = -1; // diameter: 1522.8 +- 5.2
         polarRadius = -1;
         meanRadius = 761.4; // +- 2.6
+        surfaceArea = 7285000;
         satellites = null; // No one known satellite
     }
 

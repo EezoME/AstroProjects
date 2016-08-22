@@ -17,11 +17,15 @@ public final class Japetus extends PlanetarySystemObject {
         semiMajorAxis = 3560820;
         averageOrbitalPeriod = (long) (79.3215 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = saturn;
 
         equatorialRadius = -1; // diameter: 1494.8 x 1424.8
         polarRadius = -1;
         meanRadius = 735.6; // +- 3
+        surfaceArea = 6700000;
         satellites = null; // No one known satellite
     }
 

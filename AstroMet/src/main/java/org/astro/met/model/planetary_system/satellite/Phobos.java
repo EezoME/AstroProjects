@@ -16,11 +16,15 @@ public final class Phobos extends PlanetarySystemObject {
         semiMajorAxis = 9377; // 9377.2
         averageOrbitalPeriod = 27552;
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = mars;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 11.1; // 26.8 x 22.4 x 18.4 km
+        surfaceArea = 1600;
         satellites = null; // No one known satellite
     }
 

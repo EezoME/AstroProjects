@@ -17,11 +17,15 @@ public final class Callisto extends PlanetarySystemObject {
         semiMajorAxis = 1882700;
         averageOrbitalPeriod = (long) (16.6890184 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 8.204;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = jupiter;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 2410.3; // +- 1.5
+        surfaceArea = 73000000;
         satellites = null; // No one known satellite
     }
 

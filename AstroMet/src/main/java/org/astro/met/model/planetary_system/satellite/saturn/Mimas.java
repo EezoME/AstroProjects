@@ -17,11 +17,15 @@ public final class Mimas extends PlanetarySystemObject {
         semiMajorAxis = 185539;
         averageOrbitalPeriod = (long) (0.942 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = saturn;
 
         equatorialRadius = -1; // diameter: 414.8 x 394.4 x 381.4 km
         polarRadius = -1;
         meanRadius = 198.3; // +- 0.3
+        surfaceArea = 493000; // approximately
         satellites = null; // No one known satellite
     }
 

@@ -17,11 +17,15 @@ public final class Titania extends PlanetarySystemObject {
         semiMajorAxis = 435910;
         averageOrbitalPeriod = (long) (8.71 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = uranus;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 788.4; // diameter: 1576.8
+        surfaceArea = 7820000;
         satellites = null; // No one known satellite
     }
 

@@ -11,6 +11,35 @@ import java.util.List;
  * Created by Eezo on 17.08.2016.
  */
 public class DataClass {
+    /**
+     * A number of seconds in a year.
+     */
+    public final static long YEAR_COEFF = 31557600L;
+    /**
+     * A number of seconds in a day.
+     */
+    public final static long DAY_COEFF = 60 * 60 * 24;
+    /**
+     * A number of seconds in a hour.
+     */
+    public final static long HOUR_COEFF = 60 * 60;
+    /**
+     * A number of seconds in a minute.
+     */
+    public final static long MINUTE_COEFF = 60;
+
+    /**
+     * A number of kilometers in a mile.
+     */
+    public static final double MILES_COEFF = 1.609345512783376231; // km = 1 mile
+    /**
+     * A number of kilometers in a astronomical unit.
+     */
+    public static final double AU_COEFF = 149598011.322; // km = 1 a.u.
+    /**
+     * A number of kilometers in a parsec.
+     */
+    public static final double PC_COEFF = 30856804799935.5; // km = 1 pc
 
     // OBJECTS
 
@@ -72,9 +101,6 @@ public class DataClass {
 
     static final String[] UNITS_DESCRIPTION = {"километры", "мили", "а.е.", "парсеки"};
 
-    public static final double MILES_COEFF = 1.609345512783376231; // km = 1 mile
-    public static final double AU_COEFF = 149598011.322; // km = 1 a.u.
-    public static final double PC_COEFF = 30856804799935.5; // km = 1 pc
 
     public static final double[] UNITS = {
             1, // km
@@ -202,11 +228,6 @@ public class DataClass {
         }
         return stringNumber;
     }
-
-    public final static long YEAR_COEFF = 31557600L;
-    public final static long DAY_COEFF = 60 * 60 * 24;
-    public final static long HOUR_COEFF = 60 * 60;
-    public final static long MINUTE_COEFF = 60;
 
 
     public static List<PlanetarySystemObject> makeAList(PlanetarySystemObject... objects){

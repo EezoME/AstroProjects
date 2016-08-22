@@ -17,11 +17,15 @@ public final class Miranda extends PlanetarySystemObject {
         semiMajorAxis = 129900;
         averageOrbitalPeriod = (long) (1.413 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 24067.7;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = uranus;
 
         equatorialRadius = -1; // dimensions: 240.4 x 234.2 x 232.9
         polarRadius = -1;
         meanRadius = 235.8; // +- 0.7
+        surfaceArea = 698711; // 698 710.82 km^2
         satellites = null; // No one known satellite
     }
 

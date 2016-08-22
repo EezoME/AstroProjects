@@ -18,13 +18,18 @@ public final class Uranus extends PlanetarySystemObject {
         pericenter = 2748938461L; // 18.37551863 au
         apocenter = 3004419704L; // 20.08330526 au
         semiMajorAxis = 2876679082L; // 19.22941195 au
+        orbitalEccentricity = 0.046;
         averageOrbitalPeriod = (long) (30685.4 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 6.81;
+        rotationPeriod = (long)(0.71833 * DataClass.DAY_COEFF);
+        isSynchronized = false;
+
         aSatelliteOf = sun;
 
         equatorialRadius = 25559;
         polarRadius = 24973;
         meanRadius = 25362; // +- 7
+        surfaceArea = 8115600000L;
         satellites = new ArrayList<>(); // 27
         satellites.add(new Miranda(this));
         satellites.add(new Ariel(this));

@@ -17,11 +17,15 @@ public final class Titan extends PlanetarySystemObject {
         semiMajorAxis = 1221870;
         averageOrbitalPeriod = (long) (15.945 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = saturn;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 2576; // diameter: 5152
+        surfaceArea = 83000000;
         satellites = null; // No one known satellite
     }
 

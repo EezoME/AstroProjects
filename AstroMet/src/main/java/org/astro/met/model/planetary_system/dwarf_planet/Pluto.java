@@ -18,13 +18,18 @@ public final class Pluto extends PlanetarySystemObject {
         pericenter = (long) (29.667 * DataClass.AU_COEFF);
         apocenter = (long) (49.31 * DataClass.AU_COEFF);
         semiMajorAxis = (long) (39.482117 * DataClass.AU_COEFF);
+        orbitalEccentricity = 0.244;
         averageOrbitalPeriod = (long) (90553.02 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 4.6691;
+        rotationPeriod = (long)(6.387 * DataClass.DAY_COEFF);
+        isSynchronized = false;
+
         aSatelliteOf = sun;
 
         equatorialRadius = -1; //dimensions: 2374 +- 8
         polarRadius = -1;
         meanRadius = 1187; // +- 4
+        surfaceArea = 17700000; // computed by radius
         satellites = new ArrayList<>(); // 5
         satellites.add(new Charon(this));
     }

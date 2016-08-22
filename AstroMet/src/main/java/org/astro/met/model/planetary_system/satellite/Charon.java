@@ -18,11 +18,15 @@ public final class Charon extends PlanetarySystemObject {
         semiMajorAxis = 19636; // calculated manually
         averageOrbitalPeriod = (long) (6.3872301 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = pluto;
 
         equatorialRadius = -1; // diameter: 1212 +- 6
         polarRadius = -1;
-        meanRadius = 606; // calculated manually
+        meanRadius = 606; // calculated manually: avg diameter 1212+-6 km
+        surfaceArea = 4580000;
         satellites = null; // No one known satellite
     }
 

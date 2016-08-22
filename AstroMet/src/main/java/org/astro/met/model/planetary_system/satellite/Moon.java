@@ -18,11 +18,15 @@ public final class Moon extends PlanetarySystemObject {
         semiMajorAxis = 384399; // 0.00257 au
         averageOrbitalPeriod = (long) (27.321582 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 1.023;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = earth;
 
         equatorialRadius = 1738.14;
         polarRadius = 1735.97;
         meanRadius = 1737.1;
+        surfaceArea = 37930000;
         satellites = null; // No one known satellite
     }
 

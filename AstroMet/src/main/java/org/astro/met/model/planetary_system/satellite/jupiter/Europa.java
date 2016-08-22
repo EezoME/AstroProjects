@@ -17,11 +17,15 @@ public final class Europa extends PlanetarySystemObject {
         semiMajorAxis = 671100;
         averageOrbitalPeriod = (long) (3.551 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 49476.1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = jupiter;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 1560.8; // +- 0.5
+        surfaceArea = 30610000;
         satellites = null; // No one known satellite
     }
 

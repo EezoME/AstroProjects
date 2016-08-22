@@ -17,11 +17,15 @@ public final class Ariel extends PlanetarySystemObject {
         semiMajorAxis = 191020;
         averageOrbitalPeriod = (long) (2.52 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 5.51; // calculated on the basis of other parameters (by Wiki)
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = uranus;
 
         equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 578.9; // dimensions: 1162.2 x 1155.8 x 1155.4
+        surfaceArea = 4211300;
         satellites = null; // No one known satellite
     }
 

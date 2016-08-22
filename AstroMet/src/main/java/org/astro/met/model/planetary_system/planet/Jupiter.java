@@ -21,13 +21,18 @@ public final class Jupiter extends PlanetarySystemObject {
         pericenter = (long) (4.950429 * DataClass.AU_COEFF); // 7.405736*10^8 km
         apocenter = (long) (5.458104 * DataClass.AU_COEFF); // 8.165208*10^8 km
         semiMajorAxis = (long) (7.785472 * DataClass.AU_COEFF); // 7.785472*10^8 km
+        orbitalEccentricity = 0.049;
         averageOrbitalPeriod = (long) (4332.589 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 13.07;
+        rotationPeriod = (long)(9.925 * DataClass.HOUR_COEFF);
+        isSynchronized = false;
+
         aSatelliteOf = sun;
 
         equatorialRadius = 71492.0; // +- 4
         polarRadius = 66854.0; // +- 10
         meanRadius = 69911.0; // +- 6
+        surfaceArea = 62179600000L;
         satellites = new ArrayList<>(); // 67
         satellites.add(new Io(this));
         satellites.add(new Europa(this));

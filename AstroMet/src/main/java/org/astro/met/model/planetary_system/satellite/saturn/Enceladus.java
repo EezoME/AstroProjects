@@ -16,11 +16,15 @@ public final class Enceladus extends PlanetarySystemObject {
         semiMajorAxis = 237948;
         averageOrbitalPeriod = 118387; // 118386.82 or 1.370218 days
         averageOrbitalSpeed = -1;
+        rotationPeriod = -1;
+        isSynchronized = true;
+
         aSatelliteOf = saturn;
 
         equatorialRadius = -1; // 513.2 x 502.8 x 496.6 km
         polarRadius = -1;
         meanRadius = 252.1; // +- 0.1
+        surfaceArea = -1;
         satellites = null; // No one known satellite
     }
 

@@ -16,14 +16,19 @@ public final class Makemake extends PlanetarySystemObject {
         pericenter = (long) (38.050866 * DataClass.AU_COEFF);
         apocenter = (long) (52.821736 * DataClass.AU_COEFF);
         semiMajorAxis = (long) (45.436301 * DataClass.AU_COEFF);
+        orbitalEccentricity = 0.1549;
         averageOrbitalPeriod = 111867 * DataClass.DAY_COEFF;
         averageOrbitalSpeed = 4.419;
+        rotationPeriod = (long)(7.771 * DataClass.HOUR_COEFF); // +- 0.003 h
+        isSynchronized = false;
+
         aSatelliteOf = sun;
 
         // dimensions: 1478 +- 34
         equatorialRadius = 751; // +- 23
         polarRadius = 715; // +- 5
         meanRadius = 739; // +- 17
+        surfaceArea = 6300000; // approximately
         satellites = null; // 1, not important for now
     }
 
