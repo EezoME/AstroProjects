@@ -9,22 +9,38 @@ import java.awt.event.ActionListener;
  * Created by Eezo on 16.08.2016.
  */
 public class MainMetering extends JFrame {
+    private JPanel rootPanel;
     private JComboBox comboBoxGalaxies;
-    private JComboBox comboBoxStarSystems;
+    private JComboBox comboBoxPlanetarySystems;
     private JComboBox comboBoxPointOfDeparture;
     private JComboBox comboBoxArrivalPoint;
     private JComboBox comboBoxSpeed;
     private JComboBox comboBoxUnits;
-    private JPanel rootPanel;
     private JLabel labelDistance;
     private JLabel labelFlightTime;
     private JButton buttonDoCalculations;
+    private JComboBox comboBoxPSO;
+    private JComboBox comboBoxSatellites;
+    private JLabel labelDataType;
+    private JLabel labelDataPericenter;
+    private JLabel labelDataApocenter;
+    private JLabel labelDataSemiMajorAxis;
+    private JLabel labelDataOrbitalEccentricity;
+    private JLabel labelDataAverageOrbitalPeriod;
+    private JLabel labelDataAverageOrbitalSpeed;
+    private JLabel labelDataRotationPeriod;
+    private JLabel labelDataASatelliteOf;
+    private JLabel labelDataEquatorialRadius;
+    private JLabel labelDataPolarRadius;
+    private JLabel labelDataMeanRadius;
+    private JLabel labelDataSurfaceArea;
+    private JLabel labelObjectImage;
 
     public MainMetering(){
         super("AstroMet v1.0");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(rootPanel);
-        setBounds(430, 350, 825, 280);
+        setBounds(400, 215, 825, 510);
         setVisible(true);
         initializeComboboxes();
         buttonDoCalculations.addActionListener(new ActionListener() {
@@ -52,8 +68,8 @@ public class MainMetering extends JFrame {
         comboBoxGalaxies.addItem(DataClass.GALAXIES[0]);
         comboBoxGalaxies.setSelectedIndex(0);
 
-        comboBoxStarSystems.addItem(DataClass.STAR_SYSTEMS[0]);
-        comboBoxStarSystems.setSelectedIndex(0);
+        comboBoxPlanetarySystems.addItem(DataClass.STAR_SYSTEMS[0]);
+        comboBoxPlanetarySystems.setSelectedIndex(0);
 
         for (int i = 0; i < DataClass.SOLAR_SYSTEM_OBJECTS.length; i++) {
             comboBoxPointOfDeparture.addItem(DataClass.SOLAR_SYSTEM_OBJECTS[i]);

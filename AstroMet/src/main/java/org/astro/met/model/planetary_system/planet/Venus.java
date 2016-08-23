@@ -28,6 +28,8 @@ public final class Venus extends PlanetarySystemObject {
         meanRadius = 6051.8; // +- 1.0
         surfaceArea = 460000000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\venus.jpg";
     }
 
     @Override

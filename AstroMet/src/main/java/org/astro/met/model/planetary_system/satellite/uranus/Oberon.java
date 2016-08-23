@@ -27,6 +27,8 @@ public final class Oberon extends PlanetarySystemObject {
         meanRadius = 761.4; // +- 2.6
         surfaceArea = 7285000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\oberon.jpg";
     }
 
     @Override

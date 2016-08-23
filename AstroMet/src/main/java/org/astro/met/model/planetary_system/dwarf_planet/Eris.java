@@ -28,6 +28,8 @@ public final class Eris extends PlanetarySystemObject {
         meanRadius = 1163; // +- 6
         surfaceArea = 17000000; // +- 0.02*10^7 km^2
         satellites = null; // 1, not important for now
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\eris.jpg";
     }
 
     @Override

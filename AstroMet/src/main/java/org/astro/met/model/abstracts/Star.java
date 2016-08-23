@@ -7,10 +7,12 @@ import java.util.List;
  * Created by Eezo on 19.08.2016.
  */
 public abstract class Star extends PlanetarySystemObject {
+
     /**
      * Distance form the center of the galaxy to the PS star (km).
      */
     protected long distanceFromTheCenterOfTheGalaxy; // km
+
     /**
      * Distance form the galactic pole to the PS star (km).
      */

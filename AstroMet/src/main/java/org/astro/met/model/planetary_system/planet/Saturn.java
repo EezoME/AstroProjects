@@ -38,6 +38,8 @@ public final class Saturn extends PlanetarySystemObject {
         satellites.add(new Rhea(this));
         satellites.add(new Titan(this));
         satellites.add(new Japetus(this));
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\saturn.jpg";
     }
 
     @Override

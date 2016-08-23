@@ -27,6 +27,8 @@ public final class Titania extends PlanetarySystemObject {
         meanRadius = 788.4; // diameter: 1576.8
         surfaceArea = 7820000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\titania.jpg";
     }
 
     @Override

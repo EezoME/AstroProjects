@@ -27,6 +27,8 @@ public final class Triton extends PlanetarySystemObject {
         meanRadius = 1353.4;
         surfaceArea = 23018000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\triton.jpg";
     }
 
     @Override

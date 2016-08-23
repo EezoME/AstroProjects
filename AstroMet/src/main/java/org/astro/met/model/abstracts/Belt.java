@@ -8,18 +8,22 @@ import java.util.List;
  * Created by Eezo on 19.08.2016.
  */
 public abstract class Belt extends PlanetarySystemObject {
+
     /**
      * Name of belt or cloud.
      */
     protected String title;
+
     /**
      * Distance between PS star and inner border of belt or cloud (km).
      */
     protected long innerRadius;
+
     /**
      * Distance between PS star and outer border of belt of cloud (km).
      */
     protected long outerRadius;
+
     /**
      * A list of PSO than belong to this belt or cloud.
      */

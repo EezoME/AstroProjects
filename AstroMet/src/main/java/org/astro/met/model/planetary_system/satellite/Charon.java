@@ -28,6 +28,8 @@ public final class Charon extends PlanetarySystemObject {
         meanRadius = 606; // calculated manually: avg diameter 1212+-6 km
         surfaceArea = 4580000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\charon.jpg";
     }
 
     @Override

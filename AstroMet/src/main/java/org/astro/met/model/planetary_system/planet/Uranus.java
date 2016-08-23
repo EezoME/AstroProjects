@@ -36,6 +36,8 @@ public final class Uranus extends PlanetarySystemObject {
         satellites.add(new Umbriel(this));
         satellites.add(new Titania(this));
         satellites.add(new Oberon(this));
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\uranus.jpg";
     }
 
     @Override

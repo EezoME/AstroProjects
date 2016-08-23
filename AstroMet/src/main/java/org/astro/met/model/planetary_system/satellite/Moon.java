@@ -28,6 +28,8 @@ public final class Moon extends PlanetarySystemObject {
         meanRadius = 1737.1;
         surfaceArea = 37930000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\moon.jpg";
     }
 
     @Override

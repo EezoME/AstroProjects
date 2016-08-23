@@ -34,6 +34,8 @@ public final class Mars extends PlanetarySystemObject {
         satellites = new ArrayList<>(); // 2
         satellites.add(new Phobos(this));
         satellites.add(new Deimos(this));
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\mars.jpg";
     }
 
     @Override

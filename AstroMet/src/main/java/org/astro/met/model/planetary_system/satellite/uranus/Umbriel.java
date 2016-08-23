@@ -27,6 +27,8 @@ public final class Umbriel extends PlanetarySystemObject {
         meanRadius = 584.7; // diameter: 1169.4 +- 2.8
         surfaceArea = 4296000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\umbriel.gif";
     }
 
     @Override

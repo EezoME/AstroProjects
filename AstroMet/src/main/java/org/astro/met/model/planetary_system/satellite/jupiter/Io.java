@@ -27,6 +27,8 @@ public final class Io extends PlanetarySystemObject {
         meanRadius = 1821.3; // 3660 x 3637.4 x 3630.6 km
         surfaceArea = 41910000; // computed by formula: 4*pi*r^2
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\io.jpg";
     }
 
     @Override

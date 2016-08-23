@@ -1,5 +1,6 @@
 package org.astro.met.model.planetary_system.satellite.saturn;
 
+import org.astro.met.DataClass;
 import org.astro.met.model.abstracts.PlanetarySystemObject;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.planet.Saturn;
@@ -26,6 +27,8 @@ public final class Enceladus extends PlanetarySystemObject {
         meanRadius = 252.1; // +- 0.1
         surfaceArea = -1;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\enceladus.jpg";
     }
 
     @Override

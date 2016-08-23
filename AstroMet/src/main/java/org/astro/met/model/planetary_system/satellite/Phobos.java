@@ -1,5 +1,6 @@
 package org.astro.met.model.planetary_system.satellite;
 
+import org.astro.met.DataClass;
 import org.astro.met.model.abstracts.PlanetarySystemObject;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.planet.Mars;
@@ -26,6 +27,8 @@ public final class Phobos extends PlanetarySystemObject {
         meanRadius = 11.1; // 26.8 x 22.4 x 18.4 km
         surfaceArea = 1600;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\phobos.png";
     }
 
     @Override

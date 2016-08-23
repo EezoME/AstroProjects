@@ -27,6 +27,8 @@ public final class Ariel extends PlanetarySystemObject {
         meanRadius = 578.9; // dimensions: 1162.2 x 1155.8 x 1155.4
         surfaceArea = 4211300;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\ariel.jpg";
     }
 
     @Override

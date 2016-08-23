@@ -27,6 +27,8 @@ public final class Titan extends PlanetarySystemObject {
         meanRadius = 2576; // diameter: 5152
         surfaceArea = 83000000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\titan.png";
     }
 
     @Override

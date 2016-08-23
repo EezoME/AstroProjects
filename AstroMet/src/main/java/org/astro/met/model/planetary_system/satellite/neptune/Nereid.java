@@ -27,6 +27,8 @@ public final class Nereid extends PlanetarySystemObject {
         meanRadius = 170; // diameter: 340
         surfaceArea = 363168;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\nereid.jpg";
     }
 
     @Override

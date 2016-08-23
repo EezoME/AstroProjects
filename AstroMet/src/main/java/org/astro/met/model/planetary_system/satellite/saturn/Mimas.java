@@ -27,6 +27,8 @@ public final class Mimas extends PlanetarySystemObject {
         meanRadius = 198.3; // +- 0.3
         surfaceArea = 493000; // approximately
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\mimas.jpg";
     }
 
     @Override

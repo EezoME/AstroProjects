@@ -27,6 +27,8 @@ public final class Rhea extends PlanetarySystemObject {
         meanRadius = 764.3; // diameter: 1528.6
         surfaceArea = 7337000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\rhea.jpg";
     }
 
     @Override

@@ -32,6 +32,8 @@ public final class Pluto extends PlanetarySystemObject {
         surfaceArea = 17700000; // computed by radius
         satellites = new ArrayList<>(); // 5
         satellites.add(new Charon(this));
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\pluto.jpg";
     }
 
     @Override

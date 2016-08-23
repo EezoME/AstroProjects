@@ -27,6 +27,8 @@ public final class Dione extends PlanetarySystemObject {
         meanRadius = 561.7; // diameter: 1123.4
         surfaceArea = 3964659; // computed by formula: 4*pi*r^2
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\dione.jpg";
     }
 
     @Override

@@ -8,10 +8,16 @@ import java.util.List;
  * Created by Eezo on 19.08.2016.
  */
 public abstract class PlanetarySystem {
+
     /**
      * A list of stars planetary system contains.
      */
     protected List<Star> stars;
+
+    /**
+     * A path to image of this object.
+     */
+    protected String path;
 
     public List<Star> getStars() {
         return stars;

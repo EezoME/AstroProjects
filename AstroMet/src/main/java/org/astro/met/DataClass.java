@@ -11,18 +11,22 @@ import java.util.List;
  * Created by Eezo on 17.08.2016.
  */
 public class DataClass {
+
     /**
      * A number of seconds in a year.
      */
     public final static long YEAR_COEFF = 31557600L;
+
     /**
      * A number of seconds in a day.
      */
     public final static long DAY_COEFF = 60 * 60 * 24;
+
     /**
-     * A number of seconds in a hour.
+     * A number of seconds in an hour.
      */
     public final static long HOUR_COEFF = 60 * 60;
+
     /**
      * A number of seconds in a minute.
      */
@@ -32,14 +36,18 @@ public class DataClass {
      * A number of kilometers in a mile.
      */
     public static final double MILES_COEFF = 1.609345512783376231; // km = 1 mile
+
     /**
-     * A number of kilometers in a astronomical unit.
+     * A number of kilometers in an astronomical unit.
      */
     public static final double AU_COEFF = 149598011.322; // km = 1 a.u.
+
     /**
      * A number of kilometers in a parsec.
      */
     public static final double PC_COEFF = 30856804799935.5; // km = 1 pc
+
+    public static final String PATH_TO_IMAGES_FOLDER = "D:\\IntellijProjects-16-08-16\\AstroMet\\src\\main\\resources\\images";
 
     // OBJECTS
 
@@ -228,7 +236,6 @@ public class DataClass {
         }
         return stringNumber;
     }
-
 
     public static List<PlanetarySystemObject> makeAList(PlanetarySystemObject... objects){
         if (objects == null || objects.length == 0){

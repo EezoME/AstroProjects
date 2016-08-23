@@ -28,6 +28,8 @@ public final class Mercury extends PlanetarySystemObject {
         meanRadius = 2439.7; // +- 1
         surfaceArea = 74800000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\mercury.jpg";
     }
 
     @Override

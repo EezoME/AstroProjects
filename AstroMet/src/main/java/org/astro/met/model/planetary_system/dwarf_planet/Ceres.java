@@ -29,6 +29,8 @@ public final class Ceres extends PlanetarySystemObject {
         meanRadius = 475;
         surfaceArea = 2849631;
         satellites = null; // No one known satellites
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\ceres.png";
     }
 
     @Override

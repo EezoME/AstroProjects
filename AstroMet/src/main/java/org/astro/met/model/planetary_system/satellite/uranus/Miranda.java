@@ -27,6 +27,8 @@ public final class Miranda extends PlanetarySystemObject {
         meanRadius = 235.8; // +- 0.7
         surfaceArea = 698711; // 698 710.82 km^2
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\miranda.jpg";
     }
 
     @Override

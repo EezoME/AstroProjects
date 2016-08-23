@@ -18,6 +18,8 @@ public final class AsteroidBelt extends Belt {
         innerRadius = (long) (2.2 * DataClass.AU_COEFF);
         outerRadius = (long) (3.6 * DataClass.AU_COEFF);
         this.innerObjects = innerObjects;
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\asteroid_belt.png";
     }
 
     @Override

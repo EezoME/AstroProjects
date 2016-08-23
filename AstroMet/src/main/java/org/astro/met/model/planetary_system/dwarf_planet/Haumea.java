@@ -29,6 +29,8 @@ public final class Haumea extends PlanetarySystemObject {
         meanRadius = 718; // avg diameter 1300
         surfaceArea = 20000000; // approximately
         satellites = null; // 2, not important for now
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\haumea.jpg";
     }
 
     @Override

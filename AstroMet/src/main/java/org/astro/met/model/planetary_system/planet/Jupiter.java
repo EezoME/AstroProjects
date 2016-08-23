@@ -38,6 +38,8 @@ public final class Jupiter extends PlanetarySystemObject {
         satellites.add(new Europa(this));
         satellites.add(new Ganymede(this));
         satellites.add(new Callisto(this));
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\jupiter.jpg";
     }
 
     @Override

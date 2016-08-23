@@ -27,6 +27,8 @@ public final class Deimos extends PlanetarySystemObject {
         meanRadius = 6.2; // avg diameter 12.4 km
         surfaceArea = -1;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\deimos.jpg";
     }
 
     @Override

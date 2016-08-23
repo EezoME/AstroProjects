@@ -27,6 +27,8 @@ public final class Europa extends PlanetarySystemObject {
         meanRadius = 1560.8; // +- 0.5
         surfaceArea = 30610000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\europa.jpg";
     }
 
     @Override

@@ -27,6 +27,8 @@ public final class Japetus extends PlanetarySystemObject {
         meanRadius = 735.6; // +- 3
         surfaceArea = 6700000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\japetus.jpg";
     }
 
     @Override

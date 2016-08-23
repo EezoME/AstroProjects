@@ -27,6 +27,8 @@ public final class Ganymede extends PlanetarySystemObject {
         meanRadius = 2634.1; // +- 0.3
         surfaceArea = 87000000; // computed by formula: 4*pi*r^2
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\ganymede.jpg";
     }
 
     @Override

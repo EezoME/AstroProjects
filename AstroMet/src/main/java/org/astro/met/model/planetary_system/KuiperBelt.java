@@ -17,6 +17,8 @@ public final class KuiperBelt extends Belt {
         innerRadius = (long) (35 * DataClass.AU_COEFF);
         outerRadius = (long) (48 * DataClass.AU_COEFF);
         this.innerObjects = innerObjects;
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\kuiper_belt.png";
     }
 
     @Override

@@ -17,6 +17,8 @@ public final class OortCloud extends Belt {
         innerRadius = (long) (50000 * DataClass.AU_COEFF); // approximately
         outerRadius = (long) (100000 * DataClass.AU_COEFF); // approximately
         this.innerObjects = innerObjects;
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\oort_cloud.png";
     }
 
     @Override

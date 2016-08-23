@@ -34,6 +34,8 @@ public final class Neptune extends PlanetarySystemObject {
         satellites = new ArrayList<>(); // 14
         satellites.add(new Triton(this));
         satellites.add(new Nereid(this));
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\neptune.gif";
     }
 
     @Override

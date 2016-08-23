@@ -27,6 +27,8 @@ public final class Callisto extends PlanetarySystemObject {
         meanRadius = 2410.3; // +- 1.5
         surfaceArea = 73000000;
         satellites = null; // No one known satellite
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\callisto.jpg";
     }
 
     @Override

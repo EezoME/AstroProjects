@@ -29,9 +29,11 @@ public final class Earth extends PlanetarySystemObject {
         equatorialRadius = 6378.1;
         polarRadius = 6356.8;
         meanRadius = 6371.0;
-        satellites = new ArrayList<>(); // 1, 8300+ artificial satellites
         surfaceArea = 510072000;
+        satellites = new ArrayList<>(); // 1, 8300+ artificial satellites
         satellites.add(new Moon(this));
+
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\earth.jpg";
     }
 
     @Override
