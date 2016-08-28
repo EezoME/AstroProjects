@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.satellite;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Satellite;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.planet.Earth;
 
@@ -10,7 +10,7 @@ import org.astro.met.model.planetary_system.planet.Earth;
  * This class represents a model of satellite Moon (Solar System, Earth).
  * Created by Eezo on 20.08.2016.
  */
-public final class Moon extends PlanetarySystemObject {
+public final class Moon extends Satellite {
     public Moon(Earth earth) {
         type = Type.SATELLITE;
         pericenter = 363104; // 356400--370400

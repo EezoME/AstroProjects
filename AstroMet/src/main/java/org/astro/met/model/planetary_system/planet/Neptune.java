@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Planet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 import org.astro.met.model.planetary_system.satellite.neptune.Nereid;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * This class represents a model of planet Neptune (Solar System).
  * Created by Eezo on 20.08.2016.
  */
-public final class Neptune extends PlanetarySystemObject {
+public final class Neptune extends Planet {
     public Neptune(Sun sun) {
         type = Type.PLANET;
         pericenter = 4452940833L; // 29.76607095 au
@@ -23,7 +23,6 @@ public final class Neptune extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (60190.03 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 5.4349;
         rotationPeriod = (long)(0.6653 * DataClass.DAY_COEFF);
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

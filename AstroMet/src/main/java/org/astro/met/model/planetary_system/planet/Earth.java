@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Planet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 import org.astro.met.model.planetary_system.satellite.Moon;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * This class represents a model of planet Earth (Solar System).
  * Created by Eezo on 20.08.2016.
  */
-public final class Earth extends PlanetarySystemObject {
+public final class Earth extends Planet {
     public Earth(Sun sun) {
         type = Type.PLANET;
         pericenter = 147098290;
@@ -22,7 +22,6 @@ public final class Earth extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (365.256366004 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 29.783;
         rotationPeriod = (long)(0.99726968 * DataClass.DAY_COEFF);
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

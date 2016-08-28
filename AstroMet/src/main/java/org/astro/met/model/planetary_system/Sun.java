@@ -16,7 +16,9 @@ public final class Sun extends Star {
         super();
         distanceFromTheCenterOfTheGalaxy = (long) (2.5 * Math.pow(10, 17)); // km
         distanceFromTheGalacticPlane = (long) (4.6 * Math.pow(10, 14)); // km
+        equatorialRadius = 695510;
         meanRadius = 696000; // 1,392·10^9 m / 2
+        surfaceArea = 6078770000000L;
         satellites = new ArrayList<>();
         satellites.add(new Mercury(this));
         satellites.add(new Venus(this));

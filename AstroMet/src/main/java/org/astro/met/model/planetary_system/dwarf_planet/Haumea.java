@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.dwarf_planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.DwarfPlanet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 
@@ -10,7 +10,7 @@ import org.astro.met.model.planetary_system.Sun;
  * This class represents a model of dwarf planet Haumea (Solar System, Kuiper Belt).
  * Created by Eezo on 20.08.2016.
  */
-public final class Haumea extends PlanetarySystemObject {
+public final class Haumea extends DwarfPlanet {
     public Haumea(Sun sun) {
         type = Type.DWARF_PLANET;
         pericenter = (long) (34.494401 * DataClass.AU_COEFF);
@@ -20,7 +20,6 @@ public final class Haumea extends PlanetarySystemObject {
         averageOrbitalPeriod = 102937 * DataClass.DAY_COEFF;
         averageOrbitalSpeed = 4.484;
         rotationPeriod = (long)(3.9154 * DataClass.HOUR_COEFF); // +- 0.0001 h
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

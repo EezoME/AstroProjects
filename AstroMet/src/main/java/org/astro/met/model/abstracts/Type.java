@@ -45,7 +45,7 @@ public enum Type {
     BELT {
         @Override
         public String getRussianDescription() {
-            return "Пояс";
+            return "пояс";
         }
     },
     OTHER {

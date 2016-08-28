@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.satellite;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Satellite;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.dwarf_planet.Pluto;
 
@@ -9,7 +9,7 @@ import org.astro.met.model.planetary_system.dwarf_planet.Pluto;
  * This class represents a model of satellite Charon (Solar System, Pluto).
  * Created by Eezo on 20.08.2016.
  */
-public final class Charon extends PlanetarySystemObject {
+public final class Charon extends Satellite {
     public Charon(Pluto pluto) {
         type = Type.SATELLITE;
         pericenter = 19628;

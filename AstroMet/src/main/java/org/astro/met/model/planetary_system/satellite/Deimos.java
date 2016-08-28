@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.satellite;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Satellite;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.planet.Mars;
 
@@ -9,7 +9,7 @@ import org.astro.met.model.planetary_system.planet.Mars;
  * This class represents a model of satellite Deimos (Solar System, Mars).
  * Created by Eezo on 20.08.2016.
  */
-public final class Deimos extends PlanetarySystemObject {
+public final class Deimos extends Satellite {
     public Deimos(Mars mars) {
         type = Type.SATELLITE;
         pericenter = -1;
@@ -22,9 +22,10 @@ public final class Deimos extends PlanetarySystemObject {
 
         aSatelliteOf = mars;
 
-        equatorialRadius = -1; // 15 x 12.2 x 10.4 km
+        equatorialRadius = -1;
         polarRadius = -1;
         meanRadius = 6.2; // avg diameter 12.4 km
+        dimensions = "15 x 12.2 x 10.4";
         surfaceArea = -1;
         satellites = null; // No one known satellite
 

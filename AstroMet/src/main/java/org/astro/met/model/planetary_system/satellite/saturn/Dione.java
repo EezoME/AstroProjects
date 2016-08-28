@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.satellite.saturn;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Satellite;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.planet.Saturn;
 
@@ -9,7 +9,7 @@ import org.astro.met.model.planetary_system.planet.Saturn;
  * This class represents a model of satellite Dione (Solar System, Saturn).
  * Created by Eezo on 20.08.2016.
  */
-public final class Dione extends PlanetarySystemObject {
+public final class Dione extends Satellite {
     public Dione(Saturn saturn) {
         type = Type.SATELLITE;
         pericenter = -1;

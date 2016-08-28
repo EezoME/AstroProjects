@@ -162,8 +162,8 @@ public class DataClass {
         return "-unknown unit-";
     }
 
-    public static String formatTime(long s) {
-        if (s <= 0) {
+    public static String formatTime(long seconds) {
+        if (seconds <= 0) {
             return "0 с";
         }
         // 1 m = 60 s
@@ -171,28 +171,28 @@ public class DataClass {
         // 1 d == 24 h == 1440 m = 86400 s
         // 1 y == 365 d == 8760 h == 525600 m = 31536000 s
         String time = "";
-        if (s >= YEAR_COEFF) {
-            int i = (int) (s / YEAR_COEFF);
+        if (seconds >= YEAR_COEFF) {
+            int i = (int) (seconds / YEAR_COEFF);
             time += i + " " + getRightDeclensionFor(i, YEAR) + " ";
-            s -= i * YEAR_COEFF;
+            seconds -= i * YEAR_COEFF;
         }
-        if (s >= DAY_COEFF) {
-            int i = (int) (s / DAY_COEFF);
+        if (seconds >= DAY_COEFF) {
+            int i = (int) (seconds / DAY_COEFF);
             time += i + " " + getRightDeclensionFor(i, DAY) + " ";
-            s -= i * DAY_COEFF;
+            seconds -= i * DAY_COEFF;
         }
-        if (s >= HOUR_COEFF) {
-            int i = (int) (s / HOUR_COEFF);
+        if (seconds >= HOUR_COEFF) {
+            int i = (int) (seconds / HOUR_COEFF);
             time += i + " " + getRightDeclensionFor(i, HOUR) + " ";
-            s -= i * HOUR_COEFF;
+            seconds -= i * HOUR_COEFF;
         }
-        if (s >= MINUTE_COEFF) {
-            int i = (int) (s / MINUTE_COEFF);
+        if (seconds >= MINUTE_COEFF) {
+            int i = (int) (seconds / MINUTE_COEFF);
             time += i + " мин ";
-            s -= i * MINUTE_COEFF;
+            seconds -= i * MINUTE_COEFF;
         }
-        if (s > 0) {
-            time += s + " сек";
+        if (seconds > 0) {
+            time += seconds + " сек";
         }
         return time;
     }
@@ -202,7 +202,7 @@ public class DataClass {
     private static final int DAY = 2;
     private static final int HOUR = 3;
 
-    static String getRightDeclensionFor(int number, int unit) {
+    public static String getRightDeclensionFor(int number, int unit) {
         while (number >= 100) {
             number -= 100;
         }
@@ -239,7 +239,7 @@ public class DataClass {
         }
     }
 
-    static String getDigitIdents(long number) {
+    public static String getDigitIdents(long number) {
         String stringNumber = String.valueOf(number);
         int pos = stringNumber.length() - 1;
         int counter = 0;
@@ -258,7 +258,7 @@ public class DataClass {
         return stringNumber;
     }
 
-    static String getDigitIdents(double number) {
+    public static String getDigitIdents(double number) {
         String stringNumber = String.valueOf(number);
         int pos = stringNumber.indexOf('.');
         if (pos == -1) {
@@ -291,4 +291,24 @@ public class DataClass {
         return list;
     }
 
+    public static final String INFO_OBJECT_TYPE = "Тип: ";
+    public static final String INFO_EQUATORIAL_RADIUS = "Экваториальный радиус: ";
+    public static final String INFO_POLAR_RADIUS = "Полярный радиус: ";
+    public static final String INFO_MEAN_RADIUS = "Средний радиус: ";
+    public static final String INFO_SURFACE_AREA = "Площадь: ";
+    public static final String INFO_PERICENTER = "Перицентр: ";
+    public static final String INFO_APOCENTER = "Апоцентр: ";
+    public static final String INFO_SEMI_MAJOR_AXIS = "Большая полуось: ";
+    public static final String INFO_ORBITAL_ECCENTRICITY = "Эксцентриситет орбиты: ";
+    public static final String INFO_AVERAGE_ORBITAL_PERIOD = "Сидерический период обращения: ";
+    public static final String INFO_AVERAGE_ORBITAL_SPEED = "Орбитальная скорость: ";
+    public static final String INFO_ROTATION_PERIOD = "Период вращения: ";
+    public static final String INFO_A_SATELLITE_OF = "Вращается вокруг: ";
+    public static final String INFO_HABITAT_AREA = "Находится в: ";
+    public static final String INFO_DIMENSIONS = "Размеры: ";
+    public static final String INFO_TITLE = "Название: ";
+    public static final String INFO_INNER_RADIUS = "Внутрений радиус: ";
+    public static final String INFO_OUTER_RADIUS = "Внешний радиус: ";
+    public static final String INFO_DISTANCE_FROM_THE_CENTER_OF_THE_GALAXY = "Расстояние от центра галактики: ";
+    public static final String INFO_DISTANCE_FROM_THE_GALACTIC_PLANE = "Расстояние от плоскости галактики: ";
 }

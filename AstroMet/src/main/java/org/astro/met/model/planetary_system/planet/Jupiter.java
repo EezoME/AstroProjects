@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Planet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 import org.astro.met.model.planetary_system.satellite.jupiter.Callisto;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * This class represents a model of planet Jupiter (Solar System).
  * Created by Eezo on 20.08.2016.
  */
-public final class Jupiter extends PlanetarySystemObject {
+public final class Jupiter extends Planet {
     public Jupiter(Sun sun) {
         type = Type.PLANET;
         pericenter = (long) (4.950429 * DataClass.AU_COEFF); // 7.405736*10^8 km
@@ -25,7 +25,6 @@ public final class Jupiter extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (4332.589 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 13.07;
         rotationPeriod = (long)(9.925 * DataClass.HOUR_COEFF);
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

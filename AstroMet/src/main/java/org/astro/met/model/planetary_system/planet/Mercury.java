@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Planet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 
@@ -9,7 +9,7 @@ import org.astro.met.model.planetary_system.Sun;
  * This class represents a model of planet Mercury (Solar System).
  * Created by Eezo on 19.08.2016.
  */
-public final class Mercury extends PlanetarySystemObject {
+public final class Mercury extends Planet {
     public Mercury(Sun sun) {
         type = Type.PLANET;
         pericenter = 46001009; // 0.30749951 au
@@ -19,7 +19,6 @@ public final class Mercury extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (87.969 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 47.36;
         rotationPeriod = (long)(58.646 * DataClass.DAY_COEFF);
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

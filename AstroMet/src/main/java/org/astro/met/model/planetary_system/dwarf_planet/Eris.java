@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.dwarf_planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.DwarfPlanet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 
@@ -9,7 +9,7 @@ import org.astro.met.model.planetary_system.Sun;
  * This class represents a model of dwarf planet Eris (Solar System, Scattered Disc).
  * Created by Eezo on 20.08.2016.
  */
-public final class Eris extends PlanetarySystemObject {
+public final class Eris extends DwarfPlanet {
     public Eris(Sun sun) {
         type = Type.DWARF_PLANET;
         pericenter = (long) (37.911 * DataClass.AU_COEFF);
@@ -19,7 +19,6 @@ public final class Eris extends PlanetarySystemObject {
         averageOrbitalPeriod = 203830 * DataClass.DAY_COEFF;
         averageOrbitalSpeed = 3.4338;
         rotationPeriod = (long)(25.9 * DataClass.HOUR_COEFF);
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

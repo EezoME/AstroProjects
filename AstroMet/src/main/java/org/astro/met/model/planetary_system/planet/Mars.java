@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Planet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 import org.astro.met.model.planetary_system.satellite.Deimos;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * This class represents a model of planet Mars (Solar System).
  * Created by Eezo on 20.08.2016.
  */
-public final class Mars extends PlanetarySystemObject {
+public final class Mars extends Planet {
     public Mars(Sun sun) {
         type = Type.PLANET;
         pericenter = (long) (1.381 * DataClass.AU_COEFF); // 2.06655*10^8 km
@@ -23,7 +23,6 @@ public final class Mars extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (686.98 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 24.13; // 24.077
         rotationPeriod = (long)(24.6229 * DataClass.HOUR_COEFF);
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

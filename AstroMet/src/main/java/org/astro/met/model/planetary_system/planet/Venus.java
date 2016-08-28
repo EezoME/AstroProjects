@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Planet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 
@@ -9,7 +9,7 @@ import org.astro.met.model.planetary_system.Sun;
  * This class represents a model of planet Venus (Solar System).
  * Created by Eezo on 19.08.2016.
  */
-public final class Venus extends PlanetarySystemObject {
+public final class Venus extends Planet {
     public Venus(Sun sun) {
         type = Type.PLANET;
         pericenter = 107476259; // 0.71843270 au
@@ -19,7 +19,6 @@ public final class Venus extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (224.698 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 35.02;
         rotationPeriod = (long)(243.023 * DataClass.DAY_COEFF); // +- 0.002 d
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

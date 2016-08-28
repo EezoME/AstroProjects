@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.satellite.jupiter;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Satellite;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.planet.Jupiter;
 
@@ -9,7 +9,7 @@ import org.astro.met.model.planetary_system.planet.Jupiter;
  * This class represents a model of satellite Ganymede (Solar System, Jupiter).
  * Created by Eezo on 20.08.2016.
  */
-public final class Ganymede extends PlanetarySystemObject {
+public final class Ganymede extends Satellite {
     public Ganymede(Jupiter jupiter) {
         type = Type.SATELLITE;
         pericenter = 1069200;

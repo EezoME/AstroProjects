@@ -200,7 +200,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="25e49" class="javax.swing.JLabel">
+                  <component id="25e49" class="javax.swing.JLabel" binding="labelType">
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -208,7 +208,7 @@
                       <text value="Тип объекта: "/>
                     </properties>
                   </component>
-                  <component id="871e" class="javax.swing.JLabel">
+                  <component id="871e" class="javax.swing.JLabel" binding="labelRotationPeriod">
                     <constraints>
                       <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -216,7 +216,7 @@
                       <text value="Период вращения: "/>
                     </properties>
                   </component>
-                  <component id="a59f8" class="javax.swing.JLabel">
+                  <component id="a59f8" class="javax.swing.JLabel" binding="labelPericenter">
                     <constraints>
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -224,7 +224,7 @@
                       <text value="Перицентр: "/>
                     </properties>
                   </component>
-                  <component id="ee607" class="javax.swing.JLabel">
+                  <component id="ee607" class="javax.swing.JLabel" binding="labelOrbitalEccentricity">
                     <constraints>
                       <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -232,7 +232,7 @@
                       <text value="Эксцентриситет орбиты: "/>
                     </properties>
                   </component>
-                  <component id="8096e" class="javax.swing.JLabel">
+                  <component id="8096e" class="javax.swing.JLabel" binding="labelAverageOrbitalSpeed">
                     <constraints>
                       <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -240,7 +240,7 @@
                       <text value="Орбитальная скорость: "/>
                     </properties>
                   </component>
-                  <component id="13632" class="javax.swing.JLabel">
+                  <component id="13632" class="javax.swing.JLabel" binding="labelAverageOrbitalPeriod">
                     <constraints>
                       <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -248,7 +248,7 @@
                       <text value="Сидерический период обращения:"/>
                     </properties>
                   </component>
-                  <component id="18ebc" class="javax.swing.JLabel">
+                  <component id="18ebc" class="javax.swing.JLabel" binding="labelSemiMajorAxis">
                     <constraints>
                       <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -256,7 +256,7 @@
                       <text value="Большая полуось: "/>
                     </properties>
                   </component>
-                  <component id="9f01b" class="javax.swing.JLabel">
+                  <component id="9f01b" class="javax.swing.JLabel" binding="labelApocenter">
                     <constraints>
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -264,7 +264,7 @@
                       <text value="Апоцентр: "/>
                     </properties>
                   </component>
-                  <component id="dae7b" class="javax.swing.JLabel">
+                  <component id="dae7b" class="javax.swing.JLabel" binding="labelMeanRadius">
                     <constraints>
                       <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -272,7 +272,7 @@
                       <text value="Средний радиус: "/>
                     </properties>
                   </component>
-                  <component id="7b315" class="javax.swing.JLabel">
+                  <component id="7b315" class="javax.swing.JLabel" binding="labelPolarRadius">
                     <constraints>
                       <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -280,7 +280,7 @@
                       <text value="Полярный радиус: "/>
                     </properties>
                   </component>
-                  <component id="496c1" class="javax.swing.JLabel">
+                  <component id="496c1" class="javax.swing.JLabel" binding="labelEquatorialRadius">
                     <constraints>
                       <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -376,7 +376,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="ff52d" class="javax.swing.JLabel">
+                  <component id="ff52d" class="javax.swing.JLabel" binding="labelASatelliteOf">
                     <constraints>
                       <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -392,7 +392,7 @@
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="5c425" class="javax.swing.JLabel">
+                  <component id="5c425" class="javax.swing.JLabel" binding="labelSurfaceArea">
                     <constraints>
                       <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>

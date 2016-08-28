@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.dwarf_planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.DwarfPlanet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 
@@ -10,7 +10,7 @@ import org.astro.met.model.planetary_system.Sun;
  * This class represents a model of dwarf planet Makemake (Solar System, Kuiper Belt).
  * Created by Eezo on 20.08.2016.
  */
-public final class Makemake extends PlanetarySystemObject {
+public final class Makemake extends DwarfPlanet {
     public Makemake(Sun sun) {
         type = Type.DWARF_PLANET;
         pericenter = (long) (38.050866 * DataClass.AU_COEFF);
@@ -20,7 +20,6 @@ public final class Makemake extends PlanetarySystemObject {
         averageOrbitalPeriod = 111867 * DataClass.DAY_COEFF;
         averageOrbitalSpeed = 4.419;
         rotationPeriod = (long)(7.771 * DataClass.HOUR_COEFF); // +- 0.003 h
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

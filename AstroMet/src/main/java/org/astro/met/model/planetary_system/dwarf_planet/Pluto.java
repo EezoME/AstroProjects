@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.dwarf_planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.DwarfPlanet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 import org.astro.met.model.planetary_system.satellite.Charon;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * This class represents a model of dwarf planet Pluto (Solar System, Kuiper Belt).
  * Created by Eezo on 19.08.2016.
  */
-public final class Pluto extends PlanetarySystemObject {
+public final class Pluto extends DwarfPlanet {
     public Pluto(Sun sun) {
         type = Type.DWARF_PLANET;
         pericenter = (long) (29.667 * DataClass.AU_COEFF);
@@ -22,7 +22,6 @@ public final class Pluto extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (90553.02 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 4.6691;
         rotationPeriod = (long)(6.387 * DataClass.DAY_COEFF);
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

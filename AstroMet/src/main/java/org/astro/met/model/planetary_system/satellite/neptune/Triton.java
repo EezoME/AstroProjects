@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.satellite.neptune;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Satellite;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.planet.Neptune;
 
@@ -9,7 +9,7 @@ import org.astro.met.model.planetary_system.planet.Neptune;
  * This class represents a model of satellite Triton (Solar System, Neptune).
  * Created by Eezo on 20.08.2016.
  */
-public final class Triton extends PlanetarySystemObject {
+public final class Triton extends Satellite {
     public Triton(Neptune neptune) {
         type = Type.SATELLITE;
         pericenter = -1;

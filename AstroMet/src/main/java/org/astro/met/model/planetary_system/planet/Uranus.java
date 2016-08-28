@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Planet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 import org.astro.met.model.planetary_system.satellite.uranus.*;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * This class represents a model of planet Uranus (Solar System).
  * Created by Eezo on 20.08.2016.
  */
-public final class Uranus extends PlanetarySystemObject {
+public final class Uranus extends Planet {
     public Uranus(Sun sun) {
         type = Type.PLANET;
         pericenter = 2748938461L; // 18.37551863 au
@@ -22,7 +22,6 @@ public final class Uranus extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (30685.4 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 6.81;
         rotationPeriod = (long)(0.71833 * DataClass.DAY_COEFF);
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 

@@ -1,6 +1,9 @@
 package org.astro.met.model.abstracts;
 
 
+import org.astro.met.DataClass;
+
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -12,37 +15,43 @@ public abstract class Belt extends PlanetarySystemObject {
     /**
      * Name of belt or cloud.
      */
-    protected String title;
+    protected String title = "";
 
     /**
      * Distance between PS star and inner border of belt or cloud (km).
      */
-    protected long innerRadius;
+    protected long innerRadius = -1;
 
     /**
      * Distance between PS star and outer border of belt of cloud (km).
      */
-    protected long outerRadius;
+    protected long outerRadius = -1;
 
     /**
      * A list of PSO than belong to this belt or cloud.
      */
-    protected List<PlanetarySystemObject> innerObjects;
+    protected List<PlanetarySystemObject> innerObjects = null;
 
     public Belt() {
         type = Type.BELT;
-        pericenter = -2;
-        apocenter = -2;
-        semiMajorAxis = -2;
-        averageOrbitalPeriod = -2;
-        averageOrbitalSpeed = -2;
-
-        equatorialRadius = -2;
-        polarRadius = -2;
-        meanRadius = -2;
-        satellites = null;
     }
 
+    @Override
+    public HashMap<String, String> getObjectInfoMap() {
+        HashMap<String, String> ido = super.getObjectInfoMap();
+
+        if (title != null && !title.isEmpty()){
+            ido.put(DataClass.INFO_TITLE, title);
+        }
+        if (innerRadius != -1){
+            ido.put(DataClass.INFO_INNER_RADIUS, DataClass.getDigitIdents(innerRadius) + " км");
+        }
+        if (outerRadius != -1){
+            ido.put(DataClass.INFO_OUTER_RADIUS, DataClass.getDigitIdents(outerRadius) + " км");
+        }
+
+        return ido;
+    }
     /**
      * @return name of belt or cloud
      */
@@ -105,56 +114,6 @@ public abstract class Belt extends PlanetarySystemObject {
     }
 
     // NOT SUPPORTED FIELDS
-
-    @Override
-    public long getPericenter() {
-        throw new UnsupportedOperationException("Field 'pericenter' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public void setPericenter(long pericenter) {
-        throw new UnsupportedOperationException("Field 'pericenter' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public long getApocenter() {
-        throw new UnsupportedOperationException("Field 'apocenter' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public void setApocenter(long apocenter) {
-        throw new UnsupportedOperationException("Field 'apocenter' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public long getSemiMajorAxis() {
-        throw new UnsupportedOperationException("Field 'semiMajorAxis' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public void setSemiMajorAxis(long semiMajorAxis) {
-        throw new UnsupportedOperationException("Field 'semiMajorAxis' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public long getAverageOrbitalPeriod() {
-        throw new UnsupportedOperationException("Field 'averageOrbitalPeriod' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public void setAverageOrbitalPeriod(long averageOrbitalPeriod) {
-        throw new UnsupportedOperationException("Field 'averageOrbitalPeriod' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public double getAverageOrbitalSpeed() {
-        throw new UnsupportedOperationException("Field 'averageOrbitalSpeed' is not supported for that type of PSO.");
-    }
-
-    @Override
-    public void setAverageOrbitalSpeed(double averageOrbitalSpeed) {
-        throw new UnsupportedOperationException("Field 'averageOrbitalSpeed' is not supported for that type of PSO.");
-    }
 
     @Override
     public double getEquatorialRadius() {

@@ -1,7 +1,7 @@
 package org.astro.met.model.planetary_system.planet;
 
 import org.astro.met.DataClass;
-import org.astro.met.model.abstracts.PlanetarySystemObject;
+import org.astro.met.model.abstracts.Planet;
 import org.astro.met.model.abstracts.Type;
 import org.astro.met.model.planetary_system.Sun;
 import org.astro.met.model.planetary_system.satellite.saturn.*;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * This class represents a model of planet Saturn (Solar System).
  * Created by Eezo on 20.08.2016.
  */
-public final class Saturn extends PlanetarySystemObject {
+public final class Saturn extends Planet {
     public Saturn(Sun sun) {
         type = Type.PLANET;
         pericenter = 1353572956; // 9.048 au
@@ -22,7 +22,6 @@ public final class Saturn extends PlanetarySystemObject {
         averageOrbitalPeriod = (long) (10759.22 * DataClass.DAY_COEFF);
         averageOrbitalSpeed = 9.69;
         rotationPeriod = 37965; // +- 46
-        isSynchronized = false;
 
         aSatelliteOf = sun;
 
