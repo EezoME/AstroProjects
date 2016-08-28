@@ -86,17 +86,22 @@ public class DataClass {
 
     // SPEEDS (km/s)
 
+    /**
+     * This array contains description for speeds.
+     */
     static final String[] SPEEDS_DESCRIPTION = {"Скорость света (СС)", "Скорость сигнала в кабеле (67% от СС)",
-            "Самый быстрый самолёт", "Скорость ракеты", "Скорость звука", "Самая быстрый автомобиль",
-            "Комфортная скорость автомобиля", "Рекорд для человека", "Обычная ходьба", "Скорость Джефа",};
+            "Американо-германский солнечный зонд «Гелиос-Б»", "«Пионер-10» на ракете-носителе «Атлас-SLV-3C»",
+            "Самый быстрый самолёт", "Скорость звука", "Самая быстрый автомобиль", "Комфортная скорость автомобиля",
+            "Рекорд для человека", "Обычная ходьба", "Скорость Джефа",};
     /**
      * This array contains speeds for different objects (km/s).
      */
     static final double[] SPEEDS = {
             299792.458, // speed of light
             200860.94686, // speed of the signal in a cable
+            66.666667, // US-German solar probe "Helios-B"
+            14.356111111, // "Pioneer-10" on the missile carrier "Atlas SLV-3C"
             3.373, // the fastest plain "Orbital Sciences Corporation Х-34"
-            1.5914361, // the fastest rocket
             0.34029, // speed of sound
             0.123056, // the fastest car "SSC Ultimate Aero 6.3 V8"
             0.025, // comfortable car speed
@@ -118,21 +123,40 @@ public class DataClass {
     };
 
     // METHODS
+    /**
+     * Kilometer order number.
+     */
+    public final static int KM = 0;
 
-    public static String formatDistance(long c, int index) {
+    /**
+     * Mile order number.
+     */
+    public final static int MILE = 1;
+
+    /**
+     * Astronomic unit order number.
+     */
+    public final static int AU = 2;
+
+    /**
+     * Parsec order number.
+     */
+    public final static int PC = 3;
+
+    public static String formatDistance(long c, int unit) {
         if (c <= 0) {
             return "объекты идентичны";
         }
-        if (index == 0) {
+        if (unit == KM) {
             return getDigitIdents(c) + " км";
         }
-        if (index == 1) {
+        if (unit == MILE) {
             return getDigitIdents((int) (c / MILES_COEFF)) + " М";
         }
-        if (index == 2) {
+        if (unit == AU) {
             return (c / AU_COEFF) + " а.е.";
         }
-        if (index == 3) {
+        if (unit == PC) {
             return (c / PC_COEFF) + " пс";
         }
         return "-unknown unit-";
@@ -178,7 +202,7 @@ public class DataClass {
     private static final int DAY = 2;
     private static final int HOUR = 3;
 
-    private static String getRightDeclensionFor(int number, int unit) {
+    static String getRightDeclensionFor(int number, int unit) {
         while (number >= 100) {
             number -= 100;
         }
@@ -215,7 +239,26 @@ public class DataClass {
         }
     }
 
-    private static String getDigitIdents(long number) {
+    static String getDigitIdents(long number) {
+        String stringNumber = String.valueOf(number);
+        int pos = stringNumber.length() - 1;
+        int counter = 0;
+        while (pos >= 0) {
+            if (stringNumber.charAt(pos) >= 48 && stringNumber.charAt(pos) <= 57) {
+                counter++;
+            }
+            if (counter == 3) {
+                String st1 = stringNumber.substring(0, pos);
+                String st2 = stringNumber.substring(pos);
+                stringNumber = st1 + " " + st2;
+                counter = 0;
+            }
+            pos--;
+        }
+        return stringNumber;
+    }
+
+    static String getDigitIdents(double number) {
         String stringNumber = String.valueOf(number);
         int pos = stringNumber.indexOf('.');
         if (pos == -1) {

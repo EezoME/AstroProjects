@@ -47,7 +47,7 @@ public abstract class Star extends PlanetarySystemObject {
         return distanceFromTheCenterOfTheGalaxy;
     }
 
-    public void setDistanceFromTheCenterOfTheGalaxy(long distanceFromTheCenterOfTheGalaxy) {
+    protected void setDistanceFromTheCenterOfTheGalaxy(long distanceFromTheCenterOfTheGalaxy) {
         this.distanceFromTheCenterOfTheGalaxy = distanceFromTheCenterOfTheGalaxy;
     }
 
@@ -55,7 +55,7 @@ public abstract class Star extends PlanetarySystemObject {
         return distanceFromTheGalacticPlane;
     }
 
-    public void setDistanceFromTheGalacticPlane(long distanceFromTheGalacticPlane) {
+    protected void setDistanceFromTheGalacticPlane(long distanceFromTheGalacticPlane) {
         this.distanceFromTheGalacticPlane = distanceFromTheGalacticPlane;
     }
 
@@ -88,7 +88,7 @@ public abstract class Star extends PlanetarySystemObject {
 
     @Override
     public long getSemiMajorAxis() {
-        throw new UnsupportedOperationException("Field 'semiMajorAxis' is not supported for that type of SSO.");
+        return 0L;
     }
 
     @Override

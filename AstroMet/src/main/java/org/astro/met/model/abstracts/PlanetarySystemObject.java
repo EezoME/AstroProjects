@@ -223,6 +223,14 @@ public abstract class PlanetarySystemObject {
         this.satellites = satellites;
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    protected void setPath(String path) {
+        this.path = path;
+    }
+
     @Override
     public String toString() {
         return "Unnamed Planetary System Object";

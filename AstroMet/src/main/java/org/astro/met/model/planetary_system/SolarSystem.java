@@ -16,4 +16,9 @@ public final class SolarSystem extends PlanetarySystem {
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\solar_system.jpg";
     }
+
+    @Override
+    public String toString() {
+        return "Солнечная система";
+    }
 }

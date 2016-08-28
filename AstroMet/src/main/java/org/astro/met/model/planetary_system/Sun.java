@@ -8,7 +8,7 @@ import org.astro.met.model.planetary_system.planet.*;
 import java.util.ArrayList;
 
 /**
- * This class represents our star - Sun.
+ * This class represents our star - Sun (Milky Way, Solar System).
  * Created by Eezo on 19.08.2016.
  */
 public final class Sun extends Star {
@@ -23,6 +23,7 @@ public final class Sun extends Star {
         satellites.add(new Earth(this));
         satellites.add(new Mars(this));
         Ceres ceres = new Ceres(this);
+        satellites.add(new AsteroidBelt(DataClass.makeAList(ceres)));
         satellites.add(ceres);
         satellites.add(new Jupiter(this));
         satellites.add(new Saturn(this));
@@ -31,12 +32,11 @@ public final class Sun extends Star {
         Pluto pluto = new Pluto(this);
         Haumea haumea = new Haumea(this);
         Makemake makemake = new Makemake(this);
+        satellites.add(new KuiperBelt(DataClass.makeAList(pluto, haumea, makemake)));
         satellites.add(pluto);
         satellites.add(haumea);
         satellites.add(makemake);
         satellites.add(new Eris(this));
-        satellites.add(new AsteroidBelt(DataClass.makeAList(ceres)));
-        satellites.add(new KuiperBelt(DataClass.makeAList(pluto, haumea, makemake)));
         satellites.add(new OortCloud(null)); // No one known object for now
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\sun.gif";

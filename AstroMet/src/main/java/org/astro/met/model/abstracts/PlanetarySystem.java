@@ -1,6 +1,7 @@
 package org.astro.met.model.abstracts;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,11 +20,18 @@ public abstract class PlanetarySystem {
      */
     protected String path;
 
+    public List<PlanetarySystemObject> getPSOs(){
+        List<PlanetarySystemObject> list = new ArrayList<>();
+        list.addAll(stars);
+        list.addAll(stars.get(0).satellites);
+        return list;
+    }
+
     public List<Star> getStars() {
         return stars;
     }
 
-    public void setStars(List<Star> stars) {
+    protected void setStars(List<Star> stars) {
         this.stars = stars;
     }
 
