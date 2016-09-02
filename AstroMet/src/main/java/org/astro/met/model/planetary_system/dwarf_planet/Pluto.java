@@ -33,6 +33,7 @@ public final class Pluto extends DwarfPlanet {
         satellites.add(new Charon(this));
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\pluto.jpg";
+        code = DataClass.PLUTO;
     }
 
     @Override

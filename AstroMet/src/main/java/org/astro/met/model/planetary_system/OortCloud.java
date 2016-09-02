@@ -19,6 +19,7 @@ public final class OortCloud extends Belt {
         this.innerObjects = innerObjects;
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\oort_cloud.png";
+        code = DataClass.OORT_CLOUD;
     }
 
     @Override

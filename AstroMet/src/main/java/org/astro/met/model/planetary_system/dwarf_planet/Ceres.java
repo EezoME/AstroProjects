@@ -30,6 +30,7 @@ public final class Ceres extends DwarfPlanet {
         satellites = null; // No one known satellites
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\ceres.png";
+        code = DataClass.CERES;
     }
 
     @Override

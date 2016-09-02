@@ -33,6 +33,7 @@ public final class Earth extends Planet {
         satellites.add(new Moon(this));
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\earth.jpg";
+        code = DataClass.EARTH;
     }
 
     @Override

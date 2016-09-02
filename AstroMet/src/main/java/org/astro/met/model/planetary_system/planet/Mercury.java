@@ -29,6 +29,7 @@ public final class Mercury extends Planet {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\mercury.jpg";
+        code = DataClass.MERCURY;
     }
 
     @Override

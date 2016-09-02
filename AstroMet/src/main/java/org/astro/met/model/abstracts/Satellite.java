@@ -16,6 +16,7 @@ public abstract class Satellite extends Planet {
      * an astronomical body and its gravitational partner.
      * Tidal locking results in one hemisphere of the revolving object constantly facing its partner,
      * an effect known as synchronous rotation.
+     * <br><br><i>by Wiki</i>
      */
     protected boolean isSynchronized = false;
 
@@ -39,6 +40,7 @@ public abstract class Satellite extends Planet {
 
         return ido;
     }
+
 
     public boolean isSynchronized() {
         return isSynchronized;

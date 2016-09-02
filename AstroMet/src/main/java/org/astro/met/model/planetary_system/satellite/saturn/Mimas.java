@@ -30,6 +30,7 @@ public final class Mimas extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\mimas.jpg";
+        code = DataClass.MIMAS;
     }
 
     @Override

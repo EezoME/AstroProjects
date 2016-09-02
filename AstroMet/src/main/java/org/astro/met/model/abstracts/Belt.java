@@ -40,18 +40,25 @@ public abstract class Belt extends PlanetarySystemObject {
     public HashMap<String, String> getObjectInfoMap() {
         HashMap<String, String> ido = super.getObjectInfoMap();
 
-        if (title != null && !title.isEmpty()){
+        if (title != null && !title.isEmpty()) {
             ido.put(DataClass.INFO_TITLE, title);
         }
-        if (innerRadius != -1){
-            ido.put(DataClass.INFO_INNER_RADIUS, DataClass.getDigitIdents(innerRadius) + " км");
+        if (innerRadius != -1) {
+            ido.put(DataClass.INFO_INNER_RADIUS, DataClass.getDistance(innerRadius));
         }
-        if (outerRadius != -1){
-            ido.put(DataClass.INFO_OUTER_RADIUS, DataClass.getDigitIdents(outerRadius) + " км");
+        if (outerRadius != -1) {
+            ido.put(DataClass.INFO_OUTER_RADIUS, DataClass.getDistance(outerRadius));
         }
 
         return ido;
     }
+
+    @Override
+    public long getDistanceForComputing() {
+        return (innerRadius + outerRadius) / 2;
+    }
+
+
     /**
      * @return name of belt or cloud
      */
@@ -113,7 +120,8 @@ public abstract class Belt extends PlanetarySystemObject {
         return "Unnamed Belt";
     }
 
-    // NOT SUPPORTED FIELDS
+
+    // NOT SUPPORTED FIELDS (Need to deal with it)
 
     @Override
     public double getEquatorialRadius() {

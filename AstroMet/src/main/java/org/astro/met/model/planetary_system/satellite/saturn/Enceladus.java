@@ -30,6 +30,7 @@ public final class Enceladus extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\enceladus.jpg";
+        code = DataClass.ENCELADUS;
     }
 
     @Override

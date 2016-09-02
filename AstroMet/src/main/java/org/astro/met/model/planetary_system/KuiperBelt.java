@@ -19,6 +19,7 @@ public final class KuiperBelt extends Belt {
         this.innerObjects = innerObjects;
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\kuiper_belt.png";
+        code = DataClass.KUIPER_BELT;
     }
 
     @Override

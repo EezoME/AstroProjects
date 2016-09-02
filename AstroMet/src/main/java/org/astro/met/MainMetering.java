@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.*;
 import java.util.List;
 
@@ -57,16 +59,19 @@ public class MainMetering extends JFrame {
     private JLabel labelPolarRadius;
     private JLabel labelMeanRadius;
     private JLabel labelSurfaceArea;
+    private JButton buttonGetSatelliteInfo;
 
     private JLabel[][] labels;
 
     private java.util.List<PlanetarySystem> planetarySystems;
+    static double defaultUnit;
 
     public MainMetering() {
-        super("AstroMet v2.0");
+        super("AstroMet v2.1.1");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(rootPanel);
-        setBounds(400, 215, 905, 520);
+        createMenuBar();
+        setBounds(400, 215, 905, 530);
         setVisible(true);
         initialize();
         buttonDoCalculations.addActionListener(new ActionListener() {
@@ -87,19 +92,42 @@ public class MainMetering extends JFrame {
                 getInfo(comboBoxPSO);
             }
         });
-        comboBoxSatellites.addActionListener(new ActionListener() {
+        buttonGetSatelliteInfo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 getInfo(comboBoxSatellites);
             }
         });
+        comboBoxSatellites.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //getInfo(comboBoxSatellites);
+            }
+        });
+        labelObjectImage.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (labelObjectImage.getIcon().toString().equals(planetarySystems.get(0).getPath())) {
+                    System.out.println(labelObjectImage.getMousePosition());
+
+                    PlanetarySystemObject pso = getPointRange(labelObjectImage.getMousePosition());
+                    comboBoxPSO.setSelectedItem(pso);
+                    if (pso != null && comboBoxPSO.getSelectedIndex() == -1){
+                        getInfo(pso);
+                    }
+                }
+            }
+        });
     }
 
+    /**
+     * This method computes data for AstroMet.
+     */
     private void computing() {
         // distance c = |a-b|, where a - dstn between Sun and SSO1, b - dstn between Sun and SSO2
-        //long a = DataClass.DISTANCES[comboBoxPointOfDeparture.getSelectedIndex()];
+        //long a = PSO.getDistanceForComputing();
         long a = ((PlanetarySystemObject) comboBoxPointOfDeparture.getSelectedItem()).getDistanceForComputing();
-        //long b = DataClass.DISTANCES[comboBoxArrivalPoint.getSelectedIndex()];
+        //long b = PSO.getDistanceForComputing();
         long b = ((PlanetarySystemObject) comboBoxArrivalPoint.getSelectedItem()).getDistanceForComputing();
         long c = Math.abs(a - b);
         // s - number of seconds of flight time, sp - current speed
@@ -109,12 +137,26 @@ public class MainMetering extends JFrame {
         labelFlightTime.setText(DataClass.formatTime(s));
     }
 
+    /**
+     * Checks combobox for planetary system objects.
+     */
     private void getInfo(JComboBox comboBox) {
-        if (comboBox.getSelectedIndex() <= 0) {
+        if (comboBox.getSelectedIndex() < 0) {
             return;
         }
+        if (comboBox.getSelectedItem() instanceof PlanetarySystemObject) {
+            getInfo((PlanetarySystemObject) comboBox.getSelectedItem());
+        } else {
+            //JOptionPane.showMessageDialog(this, "Выберите объект планетарной системы из списка.");
+            labelObjectImage.setIcon(new ImageIcon(DataClass.PATH_TO_IMAGES_FOLDER + "\\solar_system.png"));
+        }
+    }
+
+    /**
+     * This method computes and formats data for AstroInfo.
+     */
+    private void getInfo(PlanetarySystemObject selectedObject) {
         clearLabels();
-        PlanetarySystemObject selectedObject = (PlanetarySystemObject) comboBox.getSelectedItem();
         Iterator<String> iterator = selectedObject.getObjectInfoMap().keySet().iterator();
         int ind = 0;
         while (iterator.hasNext()) {
@@ -128,23 +170,28 @@ public class MainMetering extends JFrame {
             labelSatellites.setVisible(true);
             if (selectedObject.getSatellites() == null) {
                 comboBoxSatellites.setVisible(false);
-                labelSatellites.setVisible(true);
+                labelSatellites.setText("Спутников не имеет");
             } else {
                 comboBoxSatellites.setVisible(true);
-                labelSatellites.setVisible(false);
+                labelSatellites.setText("Спутники: ");
                 for (int i = 0; i < selectedObject.getSatellites().size(); i++) {
                     comboBoxSatellites.addItem(selectedObject.getSatellites().get(i));
                 }
             }
-        } catch (UnsupportedOperationException e){
+        } catch (UnsupportedOperationException e) {
             comboBoxSatellites.setVisible(false);
             labelSatellites.setVisible(false);
             labelSatellites.setVisible(false);
         }
     }
 
+    /**
+     * Custom method for preparing form for viewing.
+     */
     @SuppressWarnings("unckecked")
     private void initialize() {
+        defaultUnit = DataClass.KM_COEFF;
+
         // labels
         labels = new JLabel[][]{{labelType, labelDataType}, {labelPericenter, labelDataPericenter},
                 {labelApocenter, labelDataApocenter}, {labelSemiMajorAxis, labelDataSemiMajorAxis},
@@ -191,7 +238,148 @@ public class MainMetering extends JFrame {
         comboBoxUnits.setSelectedIndex(0);
     }
 
-    private void clearLabels(){
+    /**
+     * Check current point allocatable for some of PSOs.
+     * @param point mouse current point
+     * @return an object of planetary system or null if no matches was found
+     */
+    private PlanetarySystemObject getPointRange(Point point) {
+        if (point == null) {
+            return null;
+        }
+
+        // Sun
+        if ((point.x >= 0 && point.x <= 25) && (point.y >= 139 && point.y <= 262)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.SUN);
+        }
+
+        // Mercury
+        if ((point.x >= 35 && point.x <= 40) && (point.y >= 160 && point.y <= 195)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.MERCURY);
+        }
+
+        // Venus
+        if ((point.x >= 45 && point.x <= 54) && (point.y >= 152 && point.y <= 184)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.VENUS);
+        }
+
+        // Earth
+        if ((point.x >= 57 && point.x <= 69) && (point.y >= 145 && point.y <= 176)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.EARTH);
+        }
+
+        // Moon
+        if ((point.x >= 59 && point.x <= 65) && (point.y >= 131 && point.y <= 143)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.MOON);
+        }
+
+        // Mars
+        if ((point.x >= 72 && point.x <= 81) && (point.y >= 140 && point.y <= 170)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.MARS);
+        }
+
+        // Asteroid Belt
+        if ((point.x >= 55 && point.x <= 94) && (point.y >= 87 && point.y <= 134) ||
+                (point.x >= 95 && point.x <= 104) && (point.y >= 105 && point.y <= 176) ||
+                (point.x >= 103 && point.x <= 117) && (point.y >= 148 && point.y <= 214) ||
+                (point.x >= 95 && point.x <= 114) && (point.y >= 238 && point.y <= 263)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.ASTEROID_BELT);
+        }
+
+        // Ceres
+        if ((point.x >= 89 && point.x <= 110) && (point.y >= 223 && point.y <= 259)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.CERES);
+        }
+
+        // Jupiter
+        if ((point.x >= 122 && point.x <= 162) && (point.y >= 168 && point.y <= 217) ||
+                (point.x >= 138 && point.x <= 149) && (point.y >= 144 && point.y <= 167)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.JUPITER);
+        }
+
+        // Saturn
+        if ((point.x >= 180 && point.x <= 217) && (point.y >= 149 && point.y <= 181) ||
+                (point.x >= 195 && point.x <= 206) && (point.y >= 128 && point.y <= 146)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.SARUTN);
+        }
+
+        // Uranus
+        if ((point.x >= 243 && point.x <= 260) && (point.y >= 137 && point.y <= 153) ||
+                (point.x >= 274 && point.x <= 282) && (point.y >= 100 && point.y <= 122)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.URANUS);
+        }
+
+        // Neptune
+        if ((point.x >= 269 && point.x <= 286) && (point.y >= 98 && point.y <= 141)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.NEPTUNE);
+        }
+
+        // Pluto
+        if ((point.x >= 290 && point.x <= 315) && (point.y >= 164 && point.y <= 172) ||
+                (point.x >= 296 && point.x <= 300) && (point.y >= 159 && point.y <= 163)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.PLUTO);
+        }
+
+        // Charon
+        if ((point.x >= 302 && point.x <= 304) && (point.y >= 160 && point.y <= 163)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.CHARON);
+        }
+
+        // Makemake
+        if ((point.x >= 292 && point.x <= 325) && (point.y >= 200 && point.y <= 207)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.MAKEMAKE);
+        }
+
+        // Kuiper Belt
+        if ((point.x >= 304 && point.x <= 321) && (point.y >= 84 && point.y <= 105) ||
+                (point.x >= 317 && point.x <= 321) && (point.y >= 105 && point.y <= 136) ||
+                (point.x >= 317 && point.x <= 334) && (point.y >= 137 && point.y <= 193) ||
+                (point.x >= 328 && point.x <= 334) && (point.y >= 197 && point.y <= 208) ||
+                (point.x >= 318 && point.x <= 334) && (point.y >= 216 && point.y <= 253)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.KUIPER_BELT);
+        }
+
+        // Eris
+        if ((point.x >= 324 && point.x <= 338) && (point.y >= 93 && point.y <= 105)) {
+            return planetarySystems.get(0).getPSOByCode(null, DataClass.ERIS);
+        }
+
+        return null;
+    }
+
+    /**
+     * Custom method to make a menu bar.
+     */
+    private void createMenuBar() {
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+
+        JMenu fileMenu = new JMenu("Файл");
+        menuBar.add(fileMenu);
+        JMenuItem optionsItem = new JMenuItem("Настройки...");
+        JMenuItem exitItem = new JMenuItem("Выход");
+        fileMenu.add(optionsItem);
+        fileMenu.addSeparator();
+        fileMenu.add(exitItem);
+
+        exitItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        optionsItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                OptionsWindow.main(null);
+            }
+        });
+    }
+
+    /**
+     * Custom method prepares labels for new info items.
+     */
+    private void clearLabels() {
         for (int i = 0; i < labels.length; i++) {
             labels[i][0].setText("");
             labels[i][1].setText("");

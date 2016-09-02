@@ -30,6 +30,7 @@ public final class Moon extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\moon.jpg";
+        code = DataClass.MOON;
     }
 
     @Override

@@ -28,7 +28,8 @@ public final class Umbriel extends Satellite {
         surfaceArea = 4296000;
         satellites = null; // No one known satellite
 
-        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\umbriel.gif";
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\umbriel.jpg";
+        code = DataClass.UMBRIEL;
     }
 
     @Override

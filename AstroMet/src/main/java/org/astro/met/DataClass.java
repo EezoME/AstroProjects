@@ -7,10 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class contains info for GUI v1.0 and some constants and help methods.
+ * This class contains info, constants and help methods for AstroProject.
  * Created by Eezo on 17.08.2016.
  */
 public class DataClass {
+
+    // ----------------------
+    // | Distance atom - km |
+    // | Time atom - sec    |
+    // ----------------------
+
+
+    // PUBLIC CONSTANTS
 
     /**
      * A number of seconds in a year.
@@ -30,7 +38,12 @@ public class DataClass {
     /**
      * A number of seconds in a minute.
      */
-    public final static long MINUTE_COEFF = 60;
+    public final static long MINUTE_COEFF = 60L;
+
+    /**
+     * A basic unit - kilometer.
+     */
+    public final static long KM_COEFF = 1L;
 
     /**
      * A number of kilometers in a mile.
@@ -47,21 +60,47 @@ public class DataClass {
      */
     public static final double PC_COEFF = 30856804799935.5; // km = 1 pc
 
+    /**
+     * A number of square miles in one square kilometer.
+     */
+    public static final double SQUARE_MILE_COEFF = 0.386102;
+
+    /**
+     * Kilometer order number.
+     */
+    public final static int KM = 0;
+
+    /**
+     * Mile order number.
+     */
+    public final static int MILE = 1;
+
+    /**
+     * Astronomic unit order number.
+     */
+    public final static int AU = 2;
+
+    /**
+     * Parsec order number.
+     */
+    public final static int PC = 3;
+
     public static final String PATH_TO_IMAGES_FOLDER = "D:\\IntellijProjects-16-08-16\\AstroMet\\src\\main\\resources\\images";
 
-    // OBJECTS
+    // DEPRECATED DATA
 
     static final String[] GALAXIES = {"Млечный Путь"};
+    @Deprecated
     static final String[] STAR_SYSTEMS = {"Солнечная система"};
+    @Deprecated
     static final String[] SOLAR_SYSTEM_OBJECTS = {"Солнце", "Меркурий", "Венера", "Земля", "Марс", "Пояс астероидов (начало)",
             "Церера", "Пояс астероидов (конец)", "Юпитер", "Сатурн", "Уран", "Нептун", "Пояс Койпера (начало)", "Плутон",
             "Хаумеа", "Макемаке", "Пояс Койпера (конец)", "Эрида", "Облако Оорта"};
 
-    // distance atom - km
-    // time atom - sec
     /**
-     * This array contains distances between Sun and other Solar System Objects (km)
+     * This array contains distances between Sun and other Solar System Objects (km).
      */
+    @Deprecated
     static final long[] DISTANCES = {
             0L, // Sun
             57909227L, // Mercury
@@ -84,15 +123,16 @@ public class DataClass {
             11219800000000L // Oort cloud
     };
 
-    // SPEEDS (km/s)
+    // --- AstroMet data ---
 
     /**
      * This array contains description for speeds.
      */
     static final String[] SPEEDS_DESCRIPTION = {"Скорость света (СС)", "Скорость сигнала в кабеле (67% от СС)",
             "Американо-германский солнечный зонд «Гелиос-Б»", "«Пионер-10» на ракете-носителе «Атлас-SLV-3C»",
-            "Самый быстрый самолёт", "Скорость звука", "Самая быстрый автомобиль", "Комфортная скорость автомобиля",
+            "Самый быстрый самолёт", "Скорость звука", "Самай быстрый автомобиль", "Комфортная скорость автомобиля",
             "Рекорд для человека", "Обычная ходьба", "Скорость Джефа",};
+
     /**
      * This array contains speeds for different objects (km/s).
      */
@@ -110,11 +150,20 @@ public class DataClass {
             7494.811 // Jefa speed
     };
 
+    // ------------------
+
     // UNITS
 
+    /**
+     * String representation of units of distance (relative to constants KM | MILE | AU | PC).
+     */
     static final String[] UNITS_DESCRIPTION = {"километры", "мили", "а.е.", "парсеки"};
 
-
+    /**
+     * An array of unit coefficients.
+     * Relative to {@code UNITS_DESCRIPTION}.
+     */
+    @Deprecated
     public static final double[] UNITS = {
             1, // km
             MILES_COEFF,
@@ -123,26 +172,14 @@ public class DataClass {
     };
 
     // METHODS
-    /**
-     * Kilometer order number.
-     */
-    public final static int KM = 0;
 
     /**
-     * Mile order number.
+     * Returns a correct distance depending on the unit of distance.
+     *
+     * @param c    distance in kilometers
+     * @param unit a unit of distance (one of KM | MILE | AU | PC)
+     * @return correct distance representation
      */
-    public final static int MILE = 1;
-
-    /**
-     * Astronomic unit order number.
-     */
-    public final static int AU = 2;
-
-    /**
-     * Parsec order number.
-     */
-    public final static int PC = 3;
-
     public static String formatDistance(long c, int unit) {
         if (c <= 0) {
             return "объекты идентичны";
@@ -162,6 +199,12 @@ public class DataClass {
         return "-unknown unit-";
     }
 
+    /**
+     * Converts number of seconds in full-correct time readable form.
+     *
+     * @param seconds number of seconds
+     * @return readable time representation
+     */
     public static String formatTime(long seconds) {
         if (seconds <= 0) {
             return "0 с";
@@ -197,12 +240,137 @@ public class DataClass {
         return time;
     }
 
-    // units
+    /**
+     * Returns a string representation of surface area with spaces between digit groups (3 digit per group).
+     *
+     * @param distance a long number of distance
+     * @return formatted number with correct unit
+     */
+    public static String getDistance(long distance) {
+        return getDistance((double)distance);
+    }
+
+    /**
+     * Returns a string representation of surface area with spaces between digit groups (3 digit per group).
+     *
+     * @param distance a double number of distance
+     * @return formatted number with correct unit
+     */
+    public static String getDistance(double distance) {
+        String stringDistance = getDigitIdents(distance / MainMetering.defaultUnit);
+        if (MainMetering.defaultUnit == KM_COEFF) {
+            return stringDistance + " км";
+        } else {
+            return stringDistance + " М";
+        }
+    }
+
+    /**
+     * Returns a string representation of speed.
+     *
+     * @param kmPerSeconds a double number of speed
+     * @return formatted number with correct unit
+     */
+    public static String getSpeed(double kmPerSeconds) {
+        if (MainMetering.defaultUnit == KM_COEFF) {
+            return getRoundedDouble(kmPerSeconds) + " км/с";
+        } else {
+            double milesPerSeconds = kmPerSeconds / MILES_COEFF;
+            return getRoundedDouble(milesPerSeconds) + " М/с";
+        }
+    }
+
+    /**
+     * Returns a string representation of surface area with spaces between digit groups (3 digit per group).
+     *
+     * @param area a long number of surface area
+     * @return formatted number with correct unit
+     */
+    public static String getSurfaceArea(long area) {
+        String stringDistance = "<html>";
+        if (MainMetering.defaultUnit == KM_COEFF) {
+            stringDistance += getDigitIdents(area);
+            return stringDistance + " км<sup>2</sup>";
+        } else {
+            stringDistance += getDigitIdents((long) (area * SQUARE_MILE_COEFF));
+            return stringDistance + " М<sup>2</sup>";
+        }
+    }
+
+    /**
+     * Returns a string represent of long number with spaces between digit groups (3 digit per group).
+     *
+     * @param number a long number
+     * @return formatted number
+     */
+    public static String getDigitIdents(long number) {
+        String stringNumber = String.valueOf(number);
+        int pos = stringNumber.length() - 1;
+        int counter = 0;
+        while (pos >= 0) {
+            if (stringNumber.charAt(pos) >= 48 && stringNumber.charAt(pos) <= 57) {
+                counter++;
+            }
+            if (counter == 3) {
+                String st1 = stringNumber.substring(0, pos);
+                String st2 = stringNumber.substring(pos);
+                stringNumber = st1 + " " + st2;
+                counter = 0;
+            }
+            pos--;
+        }
+        return stringNumber;
+    }
+
+    /**
+     * Returns a string represent of double number (rounded to 3 dig.) with spaces between digit groups (3 digit per group).
+     *
+     * @param number a double number
+     * @return formatted number
+     */
+    public static String getDigitIdents(double number) {
+        number = getRoundedDouble(number);
+        String stringNumber = String.valueOf(number);
+        int pos = stringNumber.indexOf('.');
+        if (pos == -1) {
+            pos = stringNumber.length() - 1;
+        }
+        String decimals = stringNumber.substring(pos);
+        String digits = stringNumber.substring(0, pos);
+        return getDigitIdents(Long.valueOf(digits)) + decimals;
+    }
+
+    /**
+     * Makes a list of planetary system objects.
+     *
+     * @param objects a scroll of PSOs
+     * @return a list of PSOs
+     */
+    public static List<PlanetarySystemObject> makeAList(PlanetarySystemObject... objects) {
+        if (objects == null || objects.length == 0) {
+            return null;
+        }
+        List<PlanetarySystemObject> list = new ArrayList<>();
+        for (int i = 0; i < objects.length; i++) {
+            list.add(objects[i]);
+        }
+        return list;
+    }
+
+    // PRIVATE METHODS
+
     private static final int YEAR = 1;
     private static final int DAY = 2;
     private static final int HOUR = 3;
 
-    public static String getRightDeclensionFor(int number, int unit) {
+    /**
+     * Returns a unit of time in correct form.
+     *
+     * @param number a number to find out a correct form
+     * @param unit   a unit of time
+     * @return a unit of time in correct form (string representation)
+     */
+    private static String getRightDeclensionFor(int number, int unit) {
         while (number >= 100) {
             number -= 100;
         }
@@ -239,57 +407,19 @@ public class DataClass {
         }
     }
 
-    public static String getDigitIdents(long number) {
-        String stringNumber = String.valueOf(number);
-        int pos = stringNumber.length() - 1;
-        int counter = 0;
-        while (pos >= 0) {
-            if (stringNumber.charAt(pos) >= 48 && stringNumber.charAt(pos) <= 57) {
-                counter++;
-            }
-            if (counter == 3) {
-                String st1 = stringNumber.substring(0, pos);
-                String st2 = stringNumber.substring(pos);
-                stringNumber = st1 + " " + st2;
-                counter = 0;
-            }
-            pos--;
-        }
-        return stringNumber;
+    /**
+     * Return a rounded double number (to 3 decimal).
+     *
+     * @param number a number to be rounded
+     * @return rounded number
+     */
+    private static double getRoundedDouble(double number) {
+        // by default it rounds to 3 decimal
+        number = Math.round(number * 1000);
+        return number / 1000;
     }
 
-    public static String getDigitIdents(double number) {
-        String stringNumber = String.valueOf(number);
-        int pos = stringNumber.indexOf('.');
-        if (pos == -1) {
-            pos = stringNumber.length() - 1;
-        }
-        int counter = 0;
-        while (pos >= 0) {
-            if (stringNumber.charAt(pos) >= 48 && stringNumber.charAt(pos) <= 57) {
-                counter++;
-            }
-            if (counter == 3) {
-                String st1 = stringNumber.substring(0, pos);
-                String st2 = stringNumber.substring(pos);
-                stringNumber = st1 + " " + st2;
-                counter = 0;
-            }
-            pos--;
-        }
-        return stringNumber;
-    }
-
-    public static List<PlanetarySystemObject> makeAList(PlanetarySystemObject... objects){
-        if (objects == null || objects.length == 0){
-            return null;
-        }
-        List<PlanetarySystemObject> list = new ArrayList<>();
-        for (int i = 0; i < objects.length; i++) {
-            list.add(objects[i]);
-        }
-        return list;
-    }
+    // STRING REPRESENTATIONS OF INFORMATION ITEMS
 
     public static final String INFO_OBJECT_TYPE = "Тип: ";
     public static final String INFO_EQUATORIAL_RADIUS = "Экваториальный радиус: ";
@@ -311,4 +441,51 @@ public class DataClass {
     public static final String INFO_OUTER_RADIUS = "Внешний радиус: ";
     public static final String INFO_DISTANCE_FROM_THE_CENTER_OF_THE_GALAXY = "Расстояние от центра галактики: ";
     public static final String INFO_DISTANCE_FROM_THE_GALACTIC_PLANE = "Расстояние от плоскости галактики: ";
+
+
+    // CODES FOR PSOs
+
+    public static final int SUN = 0;
+
+    public static final int MERCURY = 1;
+    public static final int VENUS = 2;
+    public static final int EARTH = 3;
+    public static final int MARS = 4;
+    public static final int JUPITER = 5;
+    public static final int SARUTN = 6;
+    public static final int URANUS = 7;
+    public static final int NEPTUNE = 8;
+
+    public static final int CERES = 9;
+    public static final int PLUTO = 10;
+    public static final int HAUMEA = 11;
+    public static final int MAKEMAKE = 12;
+    public static final int ERIS = 13;
+
+    public static final int ASTEROID_BELT = 20;
+    public static final int KUIPER_BELT = 21;
+    public static final int OORT_CLOUD = 22;
+
+    public static final int MOON = 30;
+    public static final int PHOBOS = 31;
+    public static final int DEIMOS = 32;
+    public static final int CALLISTO = 33;
+    public static final int EUROPA = 34;
+    public static final int GANYMEDE = 35;
+    public static final int IO = 36;
+    public static final int DIONE = 37;
+    public static final int ENCELADUS = 38;
+    public static final int JAPETUS = 39;
+    public static final int MIMAS = 40;
+    public static final int RHEA = 41;
+    public static final int TEPHYS = 42;
+    public static final int TITAN = 43;
+    public static final int ARIEL = 44;
+    public static final int MIRANDA = 45;
+    public static final int OBERON = 46;
+    public static final int TITANIA = 47;
+    public static final int UMBRIEL = 46;
+    public static final int NEREID = 49;
+    public static final int TRITON = 50;
+    public static final int CHARON = 51;
 }

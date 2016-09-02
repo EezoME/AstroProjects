@@ -29,6 +29,7 @@ public final class Ganymede extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\ganymede.jpg";
+        code = DataClass.GANYMEDE;
     }
 
     @Override

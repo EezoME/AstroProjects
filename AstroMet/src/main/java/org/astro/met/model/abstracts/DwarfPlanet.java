@@ -26,6 +26,7 @@ public abstract class DwarfPlanet extends Planet {
         return ido;
     }
 
+
     public PlanetarySystemObject getHabitatArea() {
         return habitatArea;
     }

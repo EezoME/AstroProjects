@@ -42,6 +42,7 @@ public final class Sun extends Star {
         satellites.add(new OortCloud(null)); // No one known object for now
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\sun.gif";
+        code = DataClass.SUN;
     }
 
     @Override

@@ -29,6 +29,7 @@ public final class Oberon extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\oberon.jpg";
+        code = DataClass.OBERON;
     }
 
     @Override

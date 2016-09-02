@@ -29,6 +29,7 @@ public final class Dione extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\dione.jpg";
+        code = DataClass.DIONE;
     }
 
     @Override

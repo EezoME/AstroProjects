@@ -30,15 +30,19 @@ public abstract class Star extends PlanetarySystemObject {
         HashMap<String, String> ido = super.getObjectInfoMap();
 
         if (distanceFromTheCenterOfTheGalaxy != -1){
-            ido.put(DataClass.INFO_DISTANCE_FROM_THE_CENTER_OF_THE_GALAXY, DataClass.getDigitIdents(distanceFromTheCenterOfTheGalaxy) + " км");
+            ido.put(DataClass.INFO_DISTANCE_FROM_THE_CENTER_OF_THE_GALAXY, DataClass.getDistance(distanceFromTheCenterOfTheGalaxy));
         }
         if (distanceFromTheGalacticPlane != -1){
-            ido.put(DataClass.INFO_DISTANCE_FROM_THE_GALACTIC_PLANE, DataClass.getDigitIdents(distanceFromTheGalacticPlane) + " км");
+            ido.put(DataClass.INFO_DISTANCE_FROM_THE_GALACTIC_PLANE, DataClass.getDistance(distanceFromTheGalacticPlane));
         }
 
         return ido;
     }
 
+    /**
+     * Returns an array of distances between star and its PSOs.
+     * @return array of distances (in km)
+     */
     public long[] getDistancesToSSO() {
         List<PlanetarySystemObject> satellites = getSatellites();
         if (satellites == null || satellites.size() == 0) {

@@ -30,6 +30,7 @@ public final class Phobos extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\phobos.png";
+        code = DataClass.PHOBOS;
     }
 
     @Override

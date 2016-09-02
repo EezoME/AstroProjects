@@ -35,6 +35,7 @@ public final class Neptune extends Planet {
         satellites.add(new Nereid(this));
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\neptune.gif";
+        code = DataClass.NEPTUNE;
     }
 
     @Override

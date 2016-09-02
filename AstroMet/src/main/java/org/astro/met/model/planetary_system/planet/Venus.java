@@ -29,6 +29,7 @@ public final class Venus extends Planet {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\venus.jpg";
+        code = DataClass.VENUS;
     }
 
     @Override

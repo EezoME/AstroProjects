@@ -20,6 +20,7 @@ public final class AsteroidBelt extends Belt {
         this.innerObjects = innerObjects;
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\asteroid_belt.png";
+        code = DataClass.ASTEROID_BELT;
     }
 
     @Override

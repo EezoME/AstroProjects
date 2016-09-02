@@ -29,6 +29,7 @@ public final class Triton extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\triton.jpg";
+        code = DataClass.TRITON;
     }
 
     @Override

@@ -30,6 +30,7 @@ public final class Deimos extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\deimos.jpg";
+        code = DataClass.DEIMOS;
     }
 
     @Override

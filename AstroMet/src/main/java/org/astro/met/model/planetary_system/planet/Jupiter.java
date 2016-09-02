@@ -39,6 +39,7 @@ public final class Jupiter extends Planet {
         satellites.add(new Callisto(this));
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\jupiter.jpg";
+        code = DataClass.JUPITER;
     }
 
     @Override

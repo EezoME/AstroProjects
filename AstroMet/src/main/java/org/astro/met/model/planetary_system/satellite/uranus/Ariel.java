@@ -30,6 +30,7 @@ public final class Ariel extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\ariel.jpg";
+        code = DataClass.ARIEL;
     }
 
     @Override

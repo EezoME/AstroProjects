@@ -29,6 +29,7 @@ public final class Callisto extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\callisto.jpg";
+        code = DataClass.CALLISTO;
     }
 
     @Override

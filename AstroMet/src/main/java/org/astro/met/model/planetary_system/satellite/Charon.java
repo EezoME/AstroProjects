@@ -30,6 +30,7 @@ public final class Charon extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\charon.jpg";
+        code = DataClass.CHARON;
     }
 
     @Override

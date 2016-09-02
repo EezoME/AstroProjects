@@ -39,6 +39,7 @@ public final class Saturn extends Planet {
         satellites.add(new Japetus(this));
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\saturn.jpg";
+        code = DataClass.SARUTN;
     }
 
     @Override

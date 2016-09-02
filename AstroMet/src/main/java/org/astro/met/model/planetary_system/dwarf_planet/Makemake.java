@@ -31,6 +31,7 @@ public final class Makemake extends DwarfPlanet {
         satellites = null; // 1, not important for now
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\makemake.jpg";
+        code = DataClass.MAKEMAKE;
     }
 
     @Override

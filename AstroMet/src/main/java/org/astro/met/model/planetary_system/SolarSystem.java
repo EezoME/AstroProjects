@@ -14,7 +14,7 @@ public final class SolarSystem extends PlanetarySystem {
         stars = new ArrayList<>();
         stars.add(new Sun());
 
-        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\solar_system.jpg";
+        path = DataClass.PATH_TO_IMAGES_FOLDER + "\\solar_system.png";
     }
 
     @Override

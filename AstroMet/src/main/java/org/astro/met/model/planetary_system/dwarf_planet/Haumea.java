@@ -30,6 +30,7 @@ public final class Haumea extends DwarfPlanet {
         satellites = null; // 2, not important for now
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\haumea.jpg";
+        code = DataClass.HAUMEA;
     }
 
     @Override

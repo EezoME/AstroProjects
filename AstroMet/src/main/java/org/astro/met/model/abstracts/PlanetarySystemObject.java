@@ -35,7 +35,7 @@ public abstract class PlanetarySystemObject {
     protected double meanRadius = -1; // km
 
     /**
-     * The surface of PSO area (km^2).
+     * The surface of PSO area (km<sup>2</sup>).
      */
     protected long surfaceArea = -1; // km^2
 
@@ -49,6 +49,15 @@ public abstract class PlanetarySystemObject {
      */
     protected String path;
 
+    /**
+     * Code for quick search in arrays.
+     */
+    protected int code;
+
+    /**
+     * Make a HashMap with PSO info items in correct form.
+     * @return map with info items
+     */
     public HashMap<String, String> getObjectInfoMap(){
         HashMap<String, String> ido = new HashMap<>();
 
@@ -57,24 +66,29 @@ public abstract class PlanetarySystemObject {
             ido.put(DataClass.INFO_OBJECT_TYPE, type.getRussianDescription());
         }*/
         if (equatorialRadius != -1){
-            ido.put(DataClass.INFO_EQUATORIAL_RADIUS, DataClass.getDigitIdents(equatorialRadius) + " км");
+            ido.put(DataClass.INFO_EQUATORIAL_RADIUS, DataClass.getDistance(equatorialRadius));
         }
         if (polarRadius != -1){
-            ido.put(DataClass.INFO_POLAR_RADIUS, DataClass.getDigitIdents(polarRadius) + " км");
+            ido.put(DataClass.INFO_POLAR_RADIUS, DataClass.getDistance(polarRadius));
         }
         if (meanRadius != -1){
-            ido.put(DataClass.INFO_MEAN_RADIUS, DataClass.getDigitIdents(meanRadius) + " км");
+            ido.put(DataClass.INFO_MEAN_RADIUS, DataClass.getDistance(meanRadius));
         }
         if (surfaceArea != -1){
-            ido.put(DataClass.INFO_SURFACE_AREA, "<html>" + DataClass.getDigitIdents(surfaceArea) + " км<sup>2</sup>");
+            ido.put(DataClass.INFO_SURFACE_AREA, DataClass.getSurfaceArea(surfaceArea));
         }
 
         return ido;
     }
 
+    /**
+     * This is a general method returns a distance between an object and other objects which it orbits around of.
+     * @return a distance in kilometers
+     */
     public long getDistanceForComputing(){
         return 0L;
     }
+
 
     public Type getType() {
         return type;
@@ -130,6 +144,14 @@ public abstract class PlanetarySystemObject {
 
     protected void setPath(String path) {
         this.path = path;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 
     @Override

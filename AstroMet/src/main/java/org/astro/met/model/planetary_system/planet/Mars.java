@@ -35,6 +35,7 @@ public final class Mars extends Planet {
         satellites.add(new Deimos(this));
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\mars.jpg";
+        code = DataClass.MARS;
     }
 
     @Override

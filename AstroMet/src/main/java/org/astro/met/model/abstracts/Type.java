@@ -55,5 +55,9 @@ public enum Type {
         }
     },;
 
+    /**
+     * Returns a description of type in Russian.
+     * @return description in Russian
+     */
     public abstract String getRussianDescription();
 }

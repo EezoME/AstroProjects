@@ -37,6 +37,7 @@ public final class Uranus extends Planet {
         satellites.add(new Oberon(this));
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\uranus.jpg";
+        code = DataClass.URANUS;
     }
 
     @Override

@@ -29,6 +29,7 @@ public final class Eris extends DwarfPlanet {
         satellites = null; // 1, not important for now
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\eris.jpg";
+        code = DataClass.ERIS;
     }
 
     @Override

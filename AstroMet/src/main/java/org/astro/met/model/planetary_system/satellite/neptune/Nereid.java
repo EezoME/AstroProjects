@@ -29,6 +29,7 @@ public final class Nereid extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\nereid.jpg";
+        code = DataClass.NEREID;
     }
 
     @Override

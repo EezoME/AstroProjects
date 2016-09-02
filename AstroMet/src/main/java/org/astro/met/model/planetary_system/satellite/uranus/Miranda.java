@@ -30,6 +30,7 @@ public final class Miranda extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\miranda.jpg";
+        code = DataClass.MIRANDA;
     }
 
     @Override

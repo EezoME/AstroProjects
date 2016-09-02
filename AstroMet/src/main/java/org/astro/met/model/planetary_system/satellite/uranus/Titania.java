@@ -29,6 +29,7 @@ public final class Titania extends Satellite {
         satellites = null; // No one known satellite
 
         path = DataClass.PATH_TO_IMAGES_FOLDER + "\\titania.jpg";
+        code = DataClass.TITANIA;
     }
 
     @Override
